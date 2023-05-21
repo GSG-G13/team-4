@@ -1,15 +1,12 @@
-const {Pool}=require('pg')
-require('dotenv').config();
-
+import pg from 'pg'
+import {} from 'dotenv/config'
+const {Pool} = pg;
 
 const {
   DEV_DB_URL,
   DATABASE_URL,
   NODE_ENV
 }=process.env;
-
-console.log( DEV_DB_URL);
-
 
 const options={
   connectionString: DEV_DB_URL ,
@@ -19,4 +16,4 @@ const options={
 const connection=new Pool(options)
 
 
-module.exports=connection;
+export default connection;

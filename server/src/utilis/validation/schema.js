@@ -1,5 +1,5 @@
 
-const Joi=require('joi');
+import Joi from 'joi';
 
 
 const signupSchema=Joi.object({
@@ -13,16 +13,9 @@ const signupSchema=Joi.object({
     'string.empty':'Email is required!',
     'string.email':'Email maust be valid Email Address'
   }),
-  password:Joi.string().min(8).pattern(new RegExp(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/)).messages({
-    'string.empty':'Password is required!',
-    'string.min':'Password must be at least 8 chars',
-    'string.pattern':'Password must be at least one lowercase letter, one uppercase letter, and one digit and at least  8 chars',
-    'any.required':'Password is required!'
-  }),
-  role:Joi.string().required()({
-    'string.empty': 'Username is required',
-  }),
+  password:Joi.required(),
+  role:Joi.boolean().required(),
  
 })
 
-module.exports=signupSchema;
+export {signupSchema};
