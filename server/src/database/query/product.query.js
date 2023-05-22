@@ -19,4 +19,13 @@ const getHomeProduct = () => {
   return connection.query(sql)
 }
 
-export { productQuery, getHomeProduct }
+const getProductsByTitleQuery = (title) => {
+  const sql = {
+    text: 'SELECT * FROM products WHERE title = $1',
+    values: [title]
+  }
+
+  return connection.query(sql)
+}
+
+export { productQuery, getHomeProduct,getProductsByTitleQuery }

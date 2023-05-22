@@ -1,4 +1,4 @@
-import { productQuery, getHomeProduct } from '../../database/query/product.query.js'
+import { productQuery, getHomeProduct, getProductsByTitleQuery } from '../../database/query/product.query.js'
 
 const createProduct = async (req, res) => {
   try {
@@ -31,4 +31,14 @@ const homeProduct = async (req, res) => {
   }
 }
 
-export { createProduct, homeProduct }
+const filterProductByName = async (req, res) => {
+  try {
+    const { title } = req.params
+    const data = await getProductsByTitleQuery( title )
+    res.status(200).json(data.rows)
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+export { createProduct, homeProduct,filterProductByName }
