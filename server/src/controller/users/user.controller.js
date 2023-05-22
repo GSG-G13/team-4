@@ -10,7 +10,6 @@ const signupController = async (req, res, next) => {
     const { username, email, password } = req.body
     const role = false
 
-    console.log(username, email, password, role)
 
     const value = await signupSchema.validateAsync({ username, email, password }, { abortEarly: false })
 
@@ -18,7 +17,6 @@ const signupController = async (req, res, next) => {
       const hashedPassword = await bcrypt.hash(password, 10)
       if (hashedPassword) {
         const data = await signupQuery({ username, email, password: hashedPassword, role })
-        console.log(data.rows)
 
         res.status(201).json({
           message: 'this user has been created successfully'
@@ -51,11 +49,9 @@ const signIn = async (req, res, next) => {
       if (rows.length > 0) {
         // console.log(password,rows[0].password);
         const match = await bcrypt.compare(password, rows[0].password)
-        console.log(match);
         if (match) {
           const token = jwt.sign(rows[0].id,process.env.JWT_SECRET)
 
-          console.log(token,'here me');
           res.cookie("token", token).json({
             message: "User logged in successfully",
             user,
