@@ -22,9 +22,10 @@ const signInQuery = ({ username }) => {
   return connection.query(sql);
 }
 
-const getUserData = ({ userId }) => {
+const getUserData = (userId ) => {
+  console.log(userId,'am here');
   const sql = {
-    text: `SELECT * FROM users WHERE user.id = $1`,
+    text: `SELECT * FROM users WHERE users.id = $1`,
     values: [userId],
   };
   return connection.query(sql);

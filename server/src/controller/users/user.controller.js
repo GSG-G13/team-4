@@ -1,9 +1,9 @@
 
 import bcrypt from 'bcrypt';
+import  jwt from 'jsonwebtoken'
+
 import { signupQuery, signInQuery } from '../../database/query/user.query.js';
 import { signupSchema, signInSchema } from '../../utilis/validation/schema.js';
-import generateAuthToken from '../../utilis/index.js';
-
 
 const signupController = async (req, res, next) => {
 
@@ -56,8 +56,12 @@ const signIn = async (req, res, next) => {
         const match = await bcrypt.compare(password, rows[0].password);
 
         if (match) {
-          const token = generateAuthToken(rows[0].id)
-          res.cookie("token", token).end()
+          const token = jwt.sign(rows[0].id,process.env.JWT_SECRET)
+          console.log(token);
+          res.cookie("token", token).json({
+            message: "User logged in successfully",
+            user,
+          })
         } else {
           res.status(404).json({
             message: 'password or username is not correct'
