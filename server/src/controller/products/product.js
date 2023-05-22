@@ -1,6 +1,6 @@
 
 
-import { productQuery, getHomeProduct, filterProductsByPriceQuery, getAllProductsQuery } from '../../database/query/product.query.js'
+import { productQuery, getHomeProduct, filterProductsByPriceQuery, getAllProductsQuery, getProductsByTitleQuery } from '../../database/query/product.query.js'
 
 
 const getAllProductsController = async (req, res) => {
@@ -44,18 +44,29 @@ const homeProduct = async (req, res) => {
   }
 }
 
-
-
-const filterProductsByPriceController = async (req, res) => {
+const filterProductByName = async (req, res) => {
   try {
-    const {price} = req.params
-    const products = await filterProductsByPriceQuery(price);
-    res.json(products.rows);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Internal server error' });
+    const { title } = req.params
+    const data = await getProductsByTitleQuery(title)
+    res.status(200).json(data.rows)
+  } catch (err) {
+    console.log(err)
+    res.status(500).json({ message: err });
+
   }
-};
+}
 
 
-export { createProduct, homeProduct,filterProductsByPriceController, getAllProductsController }
+  const filterProductsByPriceController = async (req, res) => {
+    try {
+      const { price } = req.params
+      const products = await filterProductsByPriceQuery(price);
+      res.json(products.rows);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  };
+
+
+  export { createProduct, homeProduct, filterProductsByPriceController, getAllProductsController, filterProductByName } 
