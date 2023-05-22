@@ -1,9 +1,9 @@
-import connection from "../config/connection";
+import connection from "../config/connection.js";
 
-const filterProductsByPriceQuery = (minPrice, maxPrice) => {
+const filterProductsByPriceQuery = (price) => {
   const sql = {
-    text: `SELECT * FROM products WHERE price >= $1 AND price <= $2`,
-    values: [minPrice, maxPrice]
+    text: `SELECT * FROM products WHERE price= $1 `,
+    values: [price]
   };
 
   return connection.query(sql);

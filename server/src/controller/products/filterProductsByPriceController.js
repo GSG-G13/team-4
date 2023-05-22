@@ -1,10 +1,10 @@
 
-import { filterProductsByPriceQuery } from "../../database/query/filterPRoductsByPriceQuery";
+import { filterProductsByPriceQuery } from "../../database/query/filterPRoductsByPriceQuery.js";
 
 const filterProductsByPriceController = async (req, res) => {
   try {
-    const { minPrice, maxPrice } = req.query;
-    const products = await filterProductsByPriceQuery(minPrice, maxPrice);
+    const {price} = req.params
+    const products = await filterProductsByPriceQuery(price);
     res.json(products.rows);
   } catch (error) {
     console.error(error);
