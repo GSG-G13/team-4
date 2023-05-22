@@ -1,5 +1,6 @@
 import { getUserData } from '../../database/query/user.query.js'
 import jwt from 'jsonwebtoken'
+import {} from 'dotenv/config'
 
 const auth = async (req, res, next) => {
   try {
@@ -23,6 +24,7 @@ const auth = async (req, res, next) => {
 
     next()
   } catch (error) {
+    console.log('here');
     next(error)
   }
 }
