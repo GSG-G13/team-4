@@ -7,5 +7,4 @@ const router = express.Router()
 router.use(userRouter)
 router.use(productRouter)
 
-
-export default router;
+export default router
