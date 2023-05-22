@@ -1,4 +1,4 @@
-import { createProduct } from '../controller/products/product.contrller'
+import { createProduct } from '../controller/products/product.js'
 import express from 'express'
 
 const productRouter = express.Router()
