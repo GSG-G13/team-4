@@ -11,4 +11,12 @@ const productQuery = (productData) => {
   return connection.query(sql)
 }
 
-export { productQuery }
+const getHomeProduct = () => {
+  const sql = {
+    text: 'SELECT title, image FROM products;'
+  }
+
+  return connection.query(sql)
+}
+
+export { productQuery, getHomeProduct }
