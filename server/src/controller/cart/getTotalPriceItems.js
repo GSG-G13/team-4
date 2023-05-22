@@ -1,10 +1,9 @@
 import { getTotalPrice } from '../../database/query/getTotalPrice.js'
 
 const getTotalPriceController = async (req, res) => {
-  const userId = req.userId
-
+  const { id } = req.user
   try {
-    const totalPriceResult = await getTotalPrice(userId)
+    const totalPriceResult = await getTotalPrice(id)
     const totalPrice = totalPriceResult.rows[0].total_price
 
     res.json({ total_price: totalPrice })

@@ -1,14 +1,11 @@
 import { addProductToCart } from '../../database/query/addProductToCart.js'
 
 const addCartController = async (req, res) => {
-    console.log('am here in add');
   const { id } = req.user
   const { productId } = req.params
-    const count = 1
-    console.log(id, productId);
+  const count = 1
   try {
     const data = await addProductToCart(id, productId, count)
-    console.log(data);
     res.json({ message: 'Item added to cart successfully' })
   } catch (error) {
     console.error(error)
