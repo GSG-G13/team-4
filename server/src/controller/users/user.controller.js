@@ -9,13 +9,18 @@ const signupController = async (req, res, next) => {
 
   try {
 
-    const { username, email, password, role } = req.body;
-    const value = await signupSchema.validateAsync({ username, email, password, role }, { abortEarly: false })
+    const { username, email, password } = req.body;
+    const role = false
+
+    console.log(username, email, password, role);
+
+    const value = await signupSchema.validateAsync({ username, email, password }, { abortEarly: false })
 
     if (value) {
       const hashedPassword = await bcrypt.hash(password, 10);
       if (hashedPassword) {
         const data = await signupQuery({ username, email, password: hashedPassword, role });
+        console.log(data.rows);
 
         res.status(201).json({
           message: 'this user has been created successfully',
@@ -31,9 +36,11 @@ const signupController = async (req, res, next) => {
       })
     }
 
-  } catch (error) {
+  }
+  catch (error) {
+    console.log(error);
     res.status(404).json({
-      message: error
+      message: "here"
     })
   }
 }

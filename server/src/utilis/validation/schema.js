@@ -13,8 +13,7 @@ const signupSchema = Joi.object({
     'string.empty': 'Email is required!',
     'string.email': 'Email maust be valid Email Address'
   }),
-  password: Joi.required(),
-  role: Joi.boolean().required(),
+  password: Joi.required()
 
 })
 
