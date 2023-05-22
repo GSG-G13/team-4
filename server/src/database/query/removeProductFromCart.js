@@ -1,4 +1,4 @@
-import connection from '../config/connection'
+import connection from '../config/connection.js'
 
 const removeProductFromCart = (userId, productId) => {
   const sql = {
