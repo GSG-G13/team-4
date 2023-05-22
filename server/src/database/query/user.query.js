@@ -21,4 +21,4 @@ const signInQuery = ({ username }) => {
   return connection.query(sql)
 }
 
-export { signupQuery, signInQuery }
+export { signupQuery,signInQuery };
