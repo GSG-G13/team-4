@@ -21,13 +21,12 @@ const signInQuery = ({ username }) => {
   return connection.query(sql)
 }
 
-const getUserData = (userId ) => {
-  console.log(userId,'am here');
+const getUserData = (userId) => {
   const sql = {
-    text: `SELECT * FROM users WHERE users.id = $1`,
-    values: [userId],
-  };
-  return connection.query(sql);
+    text: 'SELECT * FROM users WHERE users.id = $1',
+    values: [userId]
+  }
+  return connection.query(sql)
 }
 
 export { signupQuery, signInQuery, getUserData };

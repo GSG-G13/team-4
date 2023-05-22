@@ -45,14 +45,17 @@ const signIn = async (req, res, next) => {
   try {
     const { username, password } = req.body
     const value = await signInSchema.validateAsync({ username, password }, { abortEarly: false })
+    // console.log(value)
     if (value) {
       const { rows } = await signInQuery({ username })
       if (rows.length > 0) {
+        // console.log(password,rows[0].password);
         const match = await bcrypt.compare(password, rows[0].password)
-
+        console.log(match);
         if (match) {
           const token = jwt.sign(rows[0].id,process.env.JWT_SECRET)
-          console.log(token);
+
+          console.log(token,'here me');
           res.cookie("token", token).json({
             message: "User logged in successfully",
             user,
