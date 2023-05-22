@@ -1,4 +1,4 @@
-import { productQuery } from '../../database/query/product.query'
+import { productQuery, getHomeProduct } from '../../database/query/product.query'
 
 const createProduct = async (req, res) => {
   try {
@@ -22,4 +22,13 @@ const createProduct = async (req, res) => {
   }
 }
 
-export { createProduct }
+const homeProduct = async (req, res) => {
+  try {
+    const data = await getHomeProduct()
+    res.status(200).json(data.rows)
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+export { createProduct, homeProduct }
