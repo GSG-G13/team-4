@@ -1,8 +1,7 @@
-import connection from "../config/connection.js";
-
+import connection from '../config/connection.js'
 
 const signupQuery = ({ username, email, password, role }) => {
-  console.log(role);
+  console.log(role)
   const sql = {
     text: `INSERT INTO users (username, email, password, admin)
     VALUES($1,$2,$3,$4)
@@ -16,19 +15,18 @@ const signupQuery = ({ username, email, password, role }) => {
 
 const signInQuery = ({ username }) => {
   const sql = {
-    text: `SELECT * FROM users WHERE username = $1`,
-    values: [username],
-  };
-  return connection.query(sql);
+    text: 'SELECT * FROM users WHERE username = $1',
+    values: [username]
+  }
+  return connection.query(sql)
 }
 
-const getUserData = (userId ) => {
-  console.log(userId,'am here');
+const getUserData = (userId) => {
   const sql = {
-    text: `SELECT * FROM users WHERE users.id = $1`,
-    values: [userId],
-  };
-  return connection.query(sql);
+    text: 'SELECT * FROM users WHERE users.id = $1',
+    values: [userId]
+  }
+  return connection.query(sql)
 }
 
 export { signupQuery, signInQuery, getUserData };
