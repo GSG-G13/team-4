@@ -1,4 +1,4 @@
-import connection from"../config/connection.js";
+import connection from "../config/connection.js";
 
 
 const signupQuery=({username, email, password,role} )=>{
@@ -8,11 +8,18 @@ const signupQuery=({username, email, password,role} )=>{
     VALUES($1,$2,$3,$4)
     RETURNING id, username,email, admin
     `,
-    values: [username, email, password,role]
+    values: [username, email, password, role]
   }
 
   return connection.query(sql)
 }
 
+const signInQuery = ({ username }) => {
+  const sql = {
+    text: `SELECT * FROM users WHERE username = $1`,
+    values: [username],
+  };
+  return connection.query(sql);
+}
 
-export {signupQuery};
+export { signupQuery,signInQuery };

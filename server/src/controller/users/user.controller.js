@@ -1,72 +1,83 @@
 
 import bcrypt from 'bcrypt';
-import {signupQuery} from '../../database/query/user.query.js';
-import {signupSchema} from '../../utilis/validation/schema.js';
+import { signupQuery, signInQuery } from '../../database/query/user.query.js';
+import { signupSchema, signInSchema } from '../../utilis/validation/schema.js';
+import generateAuthToken from '../../utilis/index.js';
 
 
-const signupController=async(req, res, next)=>{
-  
-  try{
-    
-    const {username,email, password}=req.body;
+const signupController = async (req, res, next) => {
+
+  try {
+
+    const { username, email, password } = req.body;
     const role = false
 
-    console.log(username,email, password,role);
+    console.log(username, email, password, role);
 
-    const value = await signupSchema.validateAsync({username,email, password},{abortEarly:false})
-    
-    if(value){
-      const hashedPassword = await bcrypt.hash(password,10);
-      if(hashedPassword){
-        const data = await signupQuery({username,email, password:hashedPassword,role});
+    const value = await signupSchema.validateAsync({ username, email, password }, { abortEarly: false })
+
+    if (value) {
+      const hashedPassword = await bcrypt.hash(password, 10);
+      if (hashedPassword) {
+        const data = await signupQuery({ username, email, password: hashedPassword, role });
         console.log(data.rows);
 
         res.status(201).json({
-          message:'this user has been created successfully',
+          message: 'this user has been created successfully',
         })
-      }else{
+      } else {
         res.status(404).json({
-          message:'there is no password'
+          message: 'there is no password'
         })
       }
-    }else{
+    } else {
       res.status(404).json({
-        message:'there is a mistake'
+        message: 'there is a mistake'
       })
     }
-  
+
   }
-  catch(error){
+  catch (error) {
     console.log(error);
     res.status(404).json({
-      message:"here"
+      message: "here"
     })
   }
+}
 
-//  signupSchema.validateAsync({username,email, password,role},{abortEarly:false})
-//  .then((data)=>{
-//   return bcrypt.hash(password, 10)
-//  }).then(hash=>({username,email, password: hash, role}))
-//  .then(data=>signupQuery(data))
-//  .then(data=>data.rows[0])
-//  .then(data=>{
-// req.user=data;
+const signIn = async (req, res, next) => {
+  try {
 
-//   res
-//   .json({
-//     error:false,
-//     data:{
-//       message:'User Created Successfuly',
-//       user:req.user
-//     }
-//   })
-// })
-//  .catch(err=>{ 
-  
-// next(err)
-//  }) 
+    const { username, password } = req.body;
+    const value = await signInSchema.validateAsync({ username, password }, { abortEarly: false })
+    if (value) {
+      const { rows } = await signInQuery({ username });
+      if (rows.length > 0) {
+        const match = await bcrypt.compare(password, rows[0].password);
 
+        if (match) {
+          const token = generateAuthToken(rows[0].id)
+          res.cookie("token", token).end()
+        } else {
+          res.status(404).json({
+            message: 'password or username is not correct'
+          })
+        }
+      } else {
+        res.status(404).json({
+          message: 'password or username is not correct'
+
+        })
+
+      }
+    }
+  }
+  catch (error) {
+    res.status(404).json({
+      message: error
+    })
+  }
 }
 
 
-export {signupController};
+export { signupController, signIn };
