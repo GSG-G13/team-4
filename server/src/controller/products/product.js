@@ -1,4 +1,4 @@
-import { productQuery, getHomeProduct } from '../../database/query/product.query'
+import { productQuery, getHomeProduct } from '../../database/query/product.query.js'
 
 const createProduct = async (req, res) => {
   try {
