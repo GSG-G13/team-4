@@ -1,10 +1,10 @@
 import connection from "../config/connection.js";
 
 
-const signupQuery=({username, email, password,role} )=>{
+const signupQuery = ({ username, email, password, role }) => {
   console.log(role);
-  const sql={
-    text:`INSERT INTO users (username, email, password, admin)
+  const sql = {
+    text: `INSERT INTO users (username, email, password, admin)
     VALUES($1,$2,$3,$4)
     RETURNING id, username,email, admin
     `,
@@ -22,4 +22,12 @@ const signInQuery = ({ username }) => {
   return connection.query(sql);
 }
 
-export { signupQuery,signInQuery };
+const getUserData = ({ userId }) => {
+  const sql = {
+    text: `SELECT * FROM users WHERE user.id = $1`,
+    values: [userId],
+  };
+  return connection.query(sql);
+}
+
+export { signupQuery, signInQuery, getUserData };
