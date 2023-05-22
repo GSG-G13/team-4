@@ -14,8 +14,9 @@ const signupSchema=Joi.object({
     'string.email':'Email maust be valid Email Address'
   }),
   password:Joi.required(),
-  role:Joi.boolean().required(),
- 
 })
+
+
+
 
 export {signupSchema};

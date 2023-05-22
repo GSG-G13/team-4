@@ -21,6 +21,8 @@ CREATE TABLE products(
   user_id INTEGER NOT NULL REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
+
+
 CREATE TABLE productCart(
   user_id INTEGER NOT NULL REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE,
   product_id INTEGER NOT NULL REFERENCES products(id) ON UPDATE CASCADE ON DELETE CASCADE,
@@ -33,12 +35,6 @@ VALUES (
   '$dj33jjkhkhdgk54646*jkjd.ljsfjkjkhdnjghj',
   'admin@gmail.com',
   true
-),
-(
-  'user',
-  '$dj23jjkhkhdgk54646*jkjd.ljsfjkjkhdnjghf',
-  'user@gmail.com',
-  false
 );
 
 INSERT INTO products (title, image, description, price, count, user_id)
@@ -59,12 +55,6 @@ VALUES (
   1
 );
 
-INSERT INTO productCart (user_id, product_id, count)
-VALUES
-(1, 1, 3),
-(1, 1, 4),
-(2, 2, 2),
-(2, 2, 3);
 
 COMMIT;
 
