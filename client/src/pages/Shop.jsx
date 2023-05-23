@@ -5,11 +5,12 @@ import ProductCard from "../components/Card";
 import Input from "../components/Input";
 import axios from "axios";
 import Sidebar from "../components/SideBar";
+import { useParams } from "react-router-dom";
 
 const Shop=()=>{
   const [min, setMin]=useState(0)
   const [max, setMax]=useState(0)
-
+  const {category} = useParams()
   
   
   
@@ -22,10 +23,18 @@ const {data}=await axios.get('/api/products')
 setProducts([...products,...data.rows])
   }
 
+  const getByCategory = async () => {
+    const res = await axios.get(`/api/products/${category}`)
+    console.log(res);
+  }
+
   useEffect(()=>{
 getAllProducts()
 
   }, [])
+
+  useEffect(()=>{
+    getByCategory()}, [])
 
   return(
 
