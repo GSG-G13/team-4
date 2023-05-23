@@ -21,7 +21,7 @@ function App() {
   return (
     <div className="App">
 
-      <HeaderHome/>
+      {/* <HeaderHome/> */}
    {/* <Sidebar/>
 =======
 =======
@@ -29,18 +29,15 @@ function App() {
       <Navbar />
    <Sidebar/>
  <ProductCard/>
-       <Routes>
-       <Route path="/" element={<Home />} />
-       <Route path="/signIn" element={<SignIn />} />
-       <Route path="/signUp" element={<SignUp />} />
-       <Route path="/seller" element={<Seller />} />
-       <Route path="/cart" element={<CartPage />} />
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-       </Routes>  */}
-
-
+  <Route path="/cart" element={<CartPage />} />
+*/}
+  <Routes>
+  {/* <Route path="/" element={<Home />} /> */}
+  {/* <Route path="/signIn" element={<SignIn />} /> */}
+  {/* <Route path="/signUp" element={<SignUp />} /> */}
+  {/* <Route path="/seller" element={<Seller />} /> */}
+  <Route path="/cart" element={<CartPage />} />
+   </Routes>  
     </div>
   );
 }
