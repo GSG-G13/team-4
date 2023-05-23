@@ -45,6 +45,14 @@ const filterProductsByPriceQuery = (price) => {
 
   return connection.query(sql)
 }
+const getProductByIdQuery = (productId) => {
+  const sql = {
+    text: 'SELECT * FROM products WHERE products.id= $1 ',
+    values: [productId]
+  }
+
+  return connection.query(sql)
+}
 
 
-export { productQuery, getHomeProduct, getAllProductsQuery, filterProductsByPriceQuery, getProductsByTitleQuery }
+export {getProductByIdQuery, productQuery, getHomeProduct, getAllProductsQuery, filterProductsByPriceQuery, getProductsByTitleQuery }

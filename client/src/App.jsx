@@ -13,6 +13,7 @@ import CartPage from './pages/CartPage'
 import Details from './components/Details';
 import SignIn from './pages/Signin';
 import Shop from './pages/Shop';
+import ProductDetails from './pages/ProductDetails';
 
 
 
@@ -21,24 +22,28 @@ function App() {
   return (
     <div className="App">
 
-      <HeaderHome/>
+      {/* <HeaderHome/> */}
    {/* <Sidebar/>
-=======
-=======
->>>>>>> main
-      <Navbar />
    <Sidebar/>
  <ProductCard/>
-       <Routes>
-       <Route path="/" element={<Home />} />
-       <Route path="/signIn" element={<SignIn />} />
-       <Route path="/signUp" element={<SignUp />} />
-       <Route path="/seller" element={<Seller />} />
-       <Route path="/cart" element={<CartPage />} />
+  */}
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-       </Routes>  */}
+<Navbar />
+       <Routes>
+       {/* 
+       
+       <Route path="/cart" element={<CartPage />} /> */}
+       <Route path="/" element={<Home />} />
+       <Route path="/signin" element={<SignIn />} />
+       <Route path="/signup" element={<SignUp />} />
+       <Route path="/product/:id" element={<ProductDetails />} />
+       <Route path="/products" element={<Shop />} />
+       <Route path="/seller" element={<Seller />} />
+
+       {/* <Route path="/product/:id" element={<Details />} /> */}
+
+
+       </Routes> 
 
 
     </div>

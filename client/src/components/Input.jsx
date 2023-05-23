@@ -1,6 +1,7 @@
 import React from 'react'
 
 function Input({ name, value, setFunction }) {
+
   return (
     <label>
       {name}
