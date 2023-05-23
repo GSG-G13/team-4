@@ -10,14 +10,9 @@
   justify-content: space-between;
   align-items: center;
   background-color: #eee;
-<<<<<<< HEAD
   padding: 15px;
   color: #333;
   margin-bottom: 40px;
-=======
-  padding: 10px;
-  color: #222;
->>>>>>> main
 }
 
 /* Logo */
@@ -38,7 +33,6 @@
 }
 
 .list li a {
-<<<<<<< HEAD
   color: #333;
   text-decoration: none;
   transition: 0.8;
@@ -46,10 +40,8 @@
 
 .list li a:hover {
   text-decoration: underline;
-=======
   color: #222;
   text-decoration: none;
->>>>>>> main
 }
 
 /* Side icons */
@@ -58,15 +50,54 @@
   align-items: center;
 }
 
-<<<<<<< HEAD
 .side a {
   font-size: 20px;
   margin-right: 10px;
   color: #333;
-=======
-.side i {
-  font-size: 20px;
-  margin-right: 10px;
-  color: #222;
->>>>>>> main
 }
+
+/* Define the styles for the Sign component */
+
+.Sign {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Sign h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.Sign p {
+  color: red;
+  margin-bottom: 10px;
+}
+
+.Sign form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Sign input {
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.Sign button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.Sign button:hover {
+  background-color: #0056b3;
+}
+
