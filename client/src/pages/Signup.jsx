@@ -36,7 +36,7 @@ const SignUp = () => {
   };
 
   return (
-    <div>
+    <div className='Sign'>
       <h1>SignUp</h1>
       {error && <p>{error}</p>}
       <form onSubmit={handleSignUp}>
