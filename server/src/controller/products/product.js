@@ -55,13 +55,10 @@ const filterProductByName = async (req, res) => {
 
 const getProductByCategory = async (req, res) => {
   try {
-    console.log('am here');
-    const {category} = req.params
+    const { category } = req.params
     const data = await getProductByCategoryQuery(category)
-    console.log(data);
     res.status(200).json(data.rows)
-  }
-  catch (err) {
+  } catch (err) {
     console.log(err)
     res.status(500).json({ message: err })
   }
@@ -78,27 +75,25 @@ const filterProductsByPriceController = async (req, res) => {
   }
 }
 
-const getProductById = async (req, res) =>{
+const getProductById = async (req, res) => {
   try {
-    const {id} = req.params
+    const { id } = req.params
 
     const data = await getProductByIdQuery(id)
 
-    if(data.rows.length > 0){
+    if (data.rows.length > 0) {
       res.status(200).json({
-        message:'get product by id successfully',
+        message: 'get product by id successfully',
         data: data.rows
       })
-    }else{
+    } else {
       res.status(404).json({
-        message:"there is no product with such id"
+        message: 'there is no product with such id'
       })
     }
-
-    console.log(data.rows);
   } catch (error) {
     res.status(500).json({ message: 'Internal server error' })
   }
 }
 
-export { createProduct, getProductByCategory, homeProduct, filterProductsByPriceController, getAllProductsController, filterProductByName,getProductById }
+export { createProduct, getProductByCategory, homeProduct, filterProductsByPriceController, getAllProductsController, filterProductByName, getProductById }
