@@ -5,7 +5,6 @@ import {} from 'dotenv/config'
 const auth = async (req, res, next) => {
   try {
     const accessToken = req.cookies.token
-    console.log(accessToken)
     if (!accessToken) {
       return res.status(401).json({
         message: 'You are not authorized to access this route'

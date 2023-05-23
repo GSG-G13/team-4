@@ -9,12 +9,10 @@ function Details({product}) {
   const addToCart = async () => {
     try {
       await axios.post(`/api/cart/${product.id}`);
-      console.log(product.id);
     } catch (error) {
     console.log(error);
     }
   };
-  console.log(product);
   
   return (
     <div className='details'>

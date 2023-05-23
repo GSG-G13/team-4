@@ -19,13 +19,11 @@ const Shop=()=>{
 // const filterPrice= products.filter((product)=>product.price>=min && product.price<=max)
   const getAllProducts= async()=> {
 const {data}=await axios.get('/api/products')
-// console.log(data.rows);
 setProducts([...products,...data.rows])
   }
 
   const getByCategory = async () => {
     const res = await axios.get(`/api/products/${category}`)
-    console.log(res);
   }
 
   useEffect(()=>{
