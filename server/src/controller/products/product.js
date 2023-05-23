@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 import { productQuery, getHomeProduct, filterProductsByPriceQuery, getAllProductsQuery, getProductsByTitleQuery } from '../../database/query/product.query.js'
 
 const getAllProductsController = async (req, res) => {
