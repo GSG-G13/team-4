@@ -30,15 +30,15 @@ function App() {
 
 <Navbar />
        <Routes>
-       {/* 
+     
        
-       <Route path="/cart" element={<CartPage />} /> */}
        <Route path="/" element={<Home />} />
        <Route path="/signin" element={<SignIn />} />
        <Route path="/signup" element={<SignUp />} />
        <Route path="/product/:id" element={<ProductDetails />} />
        <Route path="/products" element={<Shop />} />
        <Route path="/seller" element={<Seller />} />
+       <Route path="/cart" element={<CartPage />} /> 
 
        {/* <Route path="/product/:id" element={<Details />} /> */}
 

@@ -1,11 +1,25 @@
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 import '../style/cart.css';
 import Button from './Button';
-const CartPage = () => {
-  const cartItems = [
-    { id: 1, title: 'iPhone', price: 200, count: 2, image: 'https://media.wired.com/photos/5f85fdd1033aa21518af44a8/master/w_2560%2Cc_limit/Gear-Mini-iPhone-12-Pro-Max-pacific-blue_iPhone-12-mini-white-.jpg' },
-    { id: 2, title: 'iPad', price: 500, count: 1, image: 'https://media.wired.com/photos/5f85fdd1033aa21518af44a8/master/w_2560%2Cc_limit/Gear-Mini-iPhone-12-Pro-Max-pacific-blue_iPhone-12-mini-white-.jpg' },
-  ];
 
+const CartPage = () => {
+  const [cartItems, setCartItems] = useState([]);
+
+  useEffect(() => {
+    fetchCartProducts();
+  }, []);
+
+  const fetchCartProducts = async () => {
+    try {
+      const response = await axios.get('/api/cart');
+      setCartItems([...cartItems, ...response.data.rows]);
+    } catch (error) {
+      console.error('Error fetching cart products:', error);
+    }
+  };
+
+  console.log(cartItems);
   const getTotalPrice = () => {
     let totalPrice = 0;
     cartItems.forEach((item) => {
@@ -15,31 +29,41 @@ const CartPage = () => {
   };
 
   return (
-    <div className="cart-container">
-      <h1>Cart</h1>
+    <>
+
+      <h2>Cart</h2>
       {cartItems.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
-        <div>
-          <ul className="cart-items">
+        <span className="cart">
+          <span className="productbar">
+            <ul className="grid-container">
+              <li>Products</li>
+              <li>Price</li>
+              <li>Quantity</li>
+              <li>Total</li>
+            </ul>
+          </span>
+          <span className="product">
             {cartItems.map((item) => (
-              <li key={item.id} className="cart-item">
-                <div className="item-image">
-                  <img src={item.image} alt={item.title} />
-                </div>
-                <div className="item-details">
-                  <h3>{item.title}</h3>
-                  <p>Price: ${item.price}</p>
-                  <p>Quantity: {item.count}</p>
-                </div>
-              </li>
+              <ul key={item.id} className="grid-container cart-item">
+                <li className="item-image">
+                  <div>
+                    <img src={item.image} alt={item.title} className="ProductImage" />
+                    <p>{item.title}</p>
+                  </div>
+                </li>
+                <li>${item.price}</li>
+                <li>{item.count}</li>
+                <li>${item.price * item.count}</li>
+              </ul>
             ))}
-          </ul>
-          <h3 className="total-price">Total Price: ${getTotalPrice()}</h3>
-         <Button name={"Remove"}/>
-        </div>
+            <h3 className="total-price">Total Price: ${getTotalPrice()}</h3>
+            <Button name={"Remove"} />
+          </span>
+        </span>
       )}
-    </div>
+    </>
   );
 };
 
