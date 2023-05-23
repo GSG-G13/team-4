@@ -1,5 +1,5 @@
 import express from 'express';
-import { createProduct, filterProductsByPriceController, getAllProductsController, filterProductByName, getProductById } from '../controller/products/product.js'
+import { createProduct, filterProductsByPriceController, getProductByCategory, getAllProductsController, filterProductByName, getProductById } from '../controller/products/product.js'
 import auth from '../utilis/auth/auth.js';
 
 
@@ -10,5 +10,6 @@ productRouter.get('/allproducts/:price', filterProductsByPriceController)
 productRouter.post('/product', auth, createProduct)
 productRouter.get('/products/:title', filterProductByName)
 productRouter.get('/product/:id', getProductById)
+productRouter.get('/products/:category', getProductByCategory)
 
 export default productRouter

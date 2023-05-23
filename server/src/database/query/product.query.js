@@ -13,7 +13,7 @@ const productQuery = (productData) => {
 
 const getHomeProduct = () => {
   const sql = {
-    text: 'SELECT title, image FROM products;'
+    text: 'SELECT title, image FROM products LIMIT 10;'
   }
 
   return connection.query(sql)
@@ -23,6 +23,16 @@ const getProductsByTitleQuery = (title) => {
   const sql = {
     text: 'SELECT * FROM products WHERE title = $1',
     values: [title]
+    
+  }
+
+  return connection.query(sql)
+}
+
+const getProductByCategoryQuery = (category) => {
+  const sql = {
+    text: 'SELECT * FROM products WHERE category = $1',
+    values: [category]
     
   }
 
@@ -55,4 +65,4 @@ const getProductByIdQuery = (productId) => {
 }
 
 
-export {getProductByIdQuery, productQuery, getHomeProduct, getAllProductsQuery, filterProductsByPriceQuery, getProductsByTitleQuery }
+export {getProductByIdQuery, getProductByCategoryQuery, productQuery, getHomeProduct, getAllProductsQuery, filterProductsByPriceQuery, getProductsByTitleQuery }
