@@ -8,6 +8,7 @@ import Sidebar from './components/SideBar'
 import Seller from './pages/seller'
 import Navbar from './components/Navbar';
 import CartPage from './pages/CartPage'
+import SignIn from './pages/Signin';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
  <ProductCard/>
        <Routes>
        <Route path="/" element={<Home />} />
+       <Route path="/signIn" element={<SignIn />} />
        <Route path="/signUp" element={<SignUp />} />
        <Route path="/seller" element={<Seller />} />
        <Route path="/cart" element={<CartPage />} />
