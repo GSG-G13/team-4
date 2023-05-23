@@ -57,6 +57,7 @@ const getProductByCategory = async (req, res) => {
   try {
     console.log('am here');
     const {category} = req.params
+    console.log(category);
     const data = await getProductByCategoryQuery(category)
     console.log(data);
     res.status(200).json(data.rows)
