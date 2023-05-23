@@ -5,6 +5,8 @@ import './App.css'
 import SignUp from './pages/Signup'
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home'
+import ProductCard from './components/Card'
+import Sidebar from './components/SideBar'
 
 
 
@@ -12,13 +14,13 @@ function App() {
 
   return (
     <div className="App">
-   
-
-      <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/signUp" element={<SignUp />} />
+   <Sidebar/>
+ <ProductCard/>
+       <Routes>
+       <Route path="/" element={<Home />} />
+       <Route path="/signUp" element={<SignUp />} />
       
-      </Routes>
+       </Routes> 
     </div>
   );
 }
