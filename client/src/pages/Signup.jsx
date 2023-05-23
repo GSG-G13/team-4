@@ -21,7 +21,6 @@ const SignUp = () => {
         },
         body: JSON.stringify({ username, email, password }),
       });
-      console.log(response);
       if (response.ok) {
         navigate("/signin");
         console.log('SignUp successful');
