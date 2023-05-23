@@ -10,9 +10,14 @@
   justify-content: space-between;
   align-items: center;
   background-color: #eee;
+<<<<<<< HEAD
   padding: 15px;
   color: #333;
   margin-bottom: 40px;
+=======
+  padding: 10px;
+  color: #222;
+>>>>>>> main
 }
 
 /* Logo */
@@ -33,6 +38,7 @@
 }
 
 .list li a {
+<<<<<<< HEAD
   color: #333;
   text-decoration: none;
   transition: 0.8;
@@ -40,6 +46,10 @@
 
 .list li a:hover {
   text-decoration: underline;
+=======
+  color: #222;
+  text-decoration: none;
+>>>>>>> main
 }
 
 /* Side icons */
@@ -48,8 +58,15 @@
   align-items: center;
 }
 
+<<<<<<< HEAD
 .side a {
   font-size: 20px;
   margin-right: 10px;
   color: #333;
+=======
+.side i {
+  font-size: 20px;
+  margin-right: 10px;
+  color: #222;
+>>>>>>> main
 }

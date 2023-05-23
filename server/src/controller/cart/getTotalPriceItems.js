@@ -6,6 +6,8 @@ const getTotalPriceController = async (req, res) => {
     const totalPriceResult = await getTotalPrice(id)
     const totalPrice = totalPriceResult.rows[0].total_price
 
+
+    
     res.json({ total_price: totalPrice })
   } catch (error) {
     console.error(error)

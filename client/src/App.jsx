@@ -1,13 +1,13 @@
-// import { useState } from 'react'
-// import SignUp from './pages/Signup'
+
+import './App.css'
+import SignUp from './pages/Signup'
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home'
 import ProductCard from './components/Card'
 import Sidebar from './components/SideBar'
 import Seller from './pages/seller'
 import Navbar from './components/Navbar';
-import SignUp from './pages/Signup';
-
+import CartPage from './pages/CartPage'
 
 
 function App() {
@@ -21,6 +21,8 @@ function App() {
        <Route path="/" element={<Home />} />
        <Route path="/signUp" element={<SignUp />} />
        <Route path="/seller" element={<Seller />} />
+       <Route path="/cart" element={<CartPage />} />
+
        </Routes> 
 
     </div>
