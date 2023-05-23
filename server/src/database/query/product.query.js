@@ -34,9 +34,17 @@ const getAllProductsQuery = () => {
     text: 'SELECT * FROM products'
   }
 
-  return connection.query(sql);
-};
+  return connection.query(sql)
+}
 
+const filterProductsByPriceQuery = (price) => {
+  const sql = {
+    text: 'SELECT * FROM products WHERE price= $1 ',
+    values: [price]
+  }
+
+  return connection.query(sql)
+}
 
 const filterProductsByPriceQuery = (price) => {
   const sql = {

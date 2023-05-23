@@ -6,24 +6,24 @@ import Home from './pages/Home'
 import ProductCard from './components/Card'
 import Sidebar from './components/SideBar'
 import Seller from './pages/seller'
-<<<<<<< HEAD
-import HeaderHome from './components/header'
 
-=======
+import HeaderHome from './components/header'
 import Navbar from './components/Navbar';
 import CartPage from './pages/CartPage'
 import SignIn from './pages/Signin';
->>>>>>> main
+
 
 
 function App() {
 
   return (
     <div className="App">
-<<<<<<< HEAD
+
       <HeaderHome/>
    {/* <Sidebar/>
 =======
+=======
+>>>>>>> main
       <Navbar />
    <Sidebar/>
 >>>>>>> main
@@ -33,13 +33,11 @@ function App() {
        <Route path="/signIn" element={<SignIn />} />
        <Route path="/signUp" element={<SignUp />} />
        <Route path="/seller" element={<Seller />} />
-<<<<<<< HEAD
-       </Routes>  */}
-=======
        <Route path="/cart" element={<CartPage />} />
 
-       </Routes> 
->>>>>>> main
+<<<<<<< HEAD
+<<<<<<< HEAD
+       </Routes>  */}
 
     </div>
   );
