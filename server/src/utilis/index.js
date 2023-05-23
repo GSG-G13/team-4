@@ -1,7 +1,7 @@
 
-import  jwt from 'jsonwebtoken'
+import jwt from 'jsonwebtoken'
 const generateAuthToken = (user) => {
-  return jwt.sign({ id: user.id }, process.env.JWT_SECRET);
+  return jwt.sign({ id: user.id }, process.env.JWT_SECRET)
 }
 
-export  default generateAuthToken;
+export default generateAuthToken
