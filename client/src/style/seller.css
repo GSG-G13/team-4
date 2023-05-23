@@ -23,21 +23,21 @@
   gap: 15px;
 }
 
-.seller-form label input, .seller-form label textarea{
+ input, textarea{
   padding: 10px 20px;
   border: none;
   outline-width: 0;
   box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.2);
 }
 
-.seller-form select{
+ select{
   padding: 15px 20px;
   border: none;
   outline-width: 0;
   box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.2);
 }
 
-.seller-form button{
+ button{
   padding: 15px 20px;
   width: fit-content;
   margin: auto;
