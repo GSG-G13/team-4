@@ -12,15 +12,14 @@ const CartPage = () => {
 
   const fetchCartProducts = async () => {
     try {
-      const response = await axios.get('/cart');
-      const cartItems = response.data;
-      console.log(cartItems);
-      setCartItems(cartItems);
+      const response = await axios.get('/api/cart');
+      setCartItems([...cartItems, ...response.data.rows]);
     } catch (error) {
       console.error('Error fetching cart products:', error);
     }
   };
 
+  console.log(cartItems);
   const getTotalPrice = () => {
     let totalPrice = 0;
     cartItems.forEach((item) => {
@@ -31,6 +30,7 @@ const CartPage = () => {
 
   return (
     <>
+
       <h2>Cart</h2>
       {cartItems.length === 0 ? (
         <p>Your cart is empty.</p>
