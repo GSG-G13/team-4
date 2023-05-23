@@ -56,3 +56,77 @@ COMMIT;
 
 -- C:/Users/hp/Desktop/team-4/server/src/database/config/build.sql
 
+-- User Table:
+
+-- user_id (Primary Key)
+-- username
+-- password
+-- email
+-- first_name
+-- last_name
+-- address
+-- phone_number
+
+-- Product Table:
+
+-- product_id (Primary Key)
+-- name
+-- description
+-- price
+-- quantity
+-- category_id (Foreign Key)
+-- Category Table:
+
+-- category_id (Primary Key)
+-- name
+-- description
+-- Order Table:
+
+-- order_id (Primary Key)
+-- user_id (Foreign Key)
+-- order_date
+-- total_amount
+-- Order Item Table:
+
+-- order_item_id (Primary Key)
+-- order_id (Foreign Key)
+-- product_id (Foreign Key)
+-- quantity
+-- unit_price
+-- Cart Table:
+
+-- cart_id (Primary Key)
+-- user_id (Foreign Key)
+-- Cart Item Table:
+
+-- cart_item_id (Primary Key)
+-- cart_id (Foreign Key)
+-- product_id (Foreign Key)
+-- quantity
+-- unit_price
+-- Payment Table:
+
+-- payment_id (Primary Key)
+-- order_id (Foreign Key)
+-- payment_date
+-- amount
+-- payment_method
+
+-- Review Table:
+
+-- review_id (Primary Key)
+-- user_id (Foreign Key)
+-- product_id (Foreign Key)
+-- rating
+-- comment
+-- review_date
+-- Address Table:
+
+-- address_id (Primary Key)
+-- user_id (Foreign Key)
+-- address_line1
+-- address_line2
+-- city
+-- state
+-- postal_code
+-- country
