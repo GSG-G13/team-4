@@ -35,7 +35,7 @@ const getAllProductsQuery = () => {
   };
 
   return connection.query(sql);
-};
+};3
 
 const filterProductsByPriceQuery = (price) => {
   const sql = {
