@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import ProductCard from './components/Card'
 import Sidebar from './components/SideBar'
 import Seller from './pages/seller'
+import Navbar from './components/Navbar';
 import CartPage from './pages/CartPage'
 
 
@@ -13,6 +14,7 @@ function App() {
 
   return (
     <div className="App">
+      <Navbar />
    <Sidebar/>
  <ProductCard/>
        <Routes>

@@ -3,3 +3,70 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+/* Navbar container */
+.Navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #eee;
+<<<<<<< HEAD
+  padding: 15px;
+  color: #333;
+  margin-bottom: 40px;
+=======
+  padding: 10px;
+  color: #222;
+>>>>>>> main
+}
+
+/* Logo */
+.logo {
+  font-size: 24px;
+}
+
+/* List */
+.list {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.list li {
+  margin-right: 10px;
+}
+
+.list li a {
+<<<<<<< HEAD
+  color: #333;
+  text-decoration: none;
+  transition: 0.8;
+}
+
+.list li a:hover {
+  text-decoration: underline;
+=======
+  color: #222;
+  text-decoration: none;
+>>>>>>> main
+}
+
+/* Side icons */
+.side {
+  display: flex;
+  align-items: center;
+}
+
+<<<<<<< HEAD
+.side a {
+  font-size: 20px;
+  margin-right: 10px;
+  color: #333;
+=======
+.side i {
+  font-size: 20px;
+  margin-right: 10px;
+  color: #222;
+>>>>>>> main
+}
