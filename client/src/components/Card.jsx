@@ -2,19 +2,19 @@
 import React from 'react';
 import '../style/Card.css'
 
-const ProductCard = () => {
+const ProductCard = ({product}) => {
+  console.log(product,'card');
   return (
     <div className="product-card">
       <div className="product-image">
-      <img src=" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSpm8DV7JQWT_KvuwyVazlxGFgzyHWqBfJz6dtZuTFKw&s " alt="Product"  />
-
-      </div>
+     <img src={product.image} />
+      </div>5
       <div className="product-title">
-      <h2 >Product Title</h2>
+      <h2 >{product.title}</h2>
 </div>
 
 <div className="product-price">
-<p >$99.98</p>
+<p >{product.price}</p>
 </div>
 
     </div>

@@ -12,6 +12,7 @@ import Navbar from './components/Navbar';
 import CartPage from './pages/CartPage'
 import Details from './components/Details';
 import SignIn from './pages/Signin';
+import Shop from './pages/Shop';
 
 
 
@@ -20,8 +21,8 @@ function App() {
   return (
     <div className="App">
 
-      <HeaderHome />
-      {/* <Sidebar/>
+      <HeaderHome/>
+   {/* <Sidebar/>
 =======
 =======
 >>>>>>> main
