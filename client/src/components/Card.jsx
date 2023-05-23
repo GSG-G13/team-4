@@ -1,6 +1,4 @@
 
-
-
 import React from 'react';
 import '../style/Card.css'
 
@@ -16,7 +14,7 @@ const ProductCard = () => {
 </div>
 
 <div className="product-price">
-<p >$99.99</p>
+<p >$99.98</p>
 </div>
 
     </div>
