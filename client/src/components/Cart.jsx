@@ -19,7 +19,14 @@ const CartPage = () => {
     }
   };
 
-  console.log(cartItems);
+  const handleRemoveFromCart = async (productId) => {
+    try {
+      await axios.delete(`/api/deletecart/${productId}`);
+      setCartItems((prevCartItems) => prevCartItems.filter((item) => item.product_id !== productId));
+    } catch (error) {
+      console.error('Error removing product from cart:', error);
+    }
+  };
   const getTotalPrice = () => {
     let totalPrice = 0;
     cartItems.forEach((item) => {
@@ -41,12 +48,13 @@ const CartPage = () => {
               <li>Products</li>
               <li>Price</li>
               <li>Quantity</li>
-              <li>Total</li>
+              <li>Remove from cart</li>
             </ul>
           </span>
           <span className="product">
-            {cartItems.map((item) => (
-              <ul key={item.id} className="grid-container cart-item">
+            {cartItems.map((item,i) => (
+
+              <ul key={i+1} className="grid-container cart-item">
                 <li className="item-image">
                   <div>
                     <img src={item.image} alt={item.title} className="ProductImage" />
@@ -55,7 +63,8 @@ const CartPage = () => {
                 </li>
                 <li>${item.price}</li>
                 <li>{item.count}</li>
-                <li>${item.price * item.count}</li>
+                <li><button onClick={() => handleRemoveFromCart(item.product_id)}>Remove</button>
+                </li>
               </ul>
             ))}
             <h3 className="total-price">Total Price: ${getTotalPrice()}</h3>
