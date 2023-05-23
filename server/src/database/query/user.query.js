@@ -22,6 +22,8 @@ const signInQuery = ({ username }) => {
   return connection.query(sql);
 }
 
+
+
 const getUserData = ({ userId }) => {
   const sql = {
     text: `SELECT * FROM users WHERE user.id = $1`,
