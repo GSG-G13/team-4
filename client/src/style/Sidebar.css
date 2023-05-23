@@ -1,0 +1,55 @@
+
+
+.sidebar{
+  background-color: #f4f4f4;
+  padding: 10px 5px 10px 5px;
+  text-align: left;
+}
+.sidebar div{
+ margin: 40px 10px 40px 10px;
+}
+
+.searchInput {
+  width: 250px;
+  background-color: #eee;
+border:1px solid #d6d2d2;
+padding: 12px 2px 12px 10px;
+border-radius: 5px;
+}
+.priceBar{
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.categories h2{
+   font-size: 25px;
+  font-weight: 700;
+}
+.categories ul li{
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+.categories{
+  display: block;
+text-align: left;
+}
+.categories ul li{
+  list-style: none;
+  display: block;
+margin-left: -20px;
+
+}
+li a{
+  color: rgb(155, 155, 155);
+font-weight: 400px;
+font-size: 15px;
+text-decoration: none;
+}
+ .active{
+  border-bottom: 1px solid #333232;
+
+}
+li a:hover{
+  border-bottom: 1px solid #5a5959;
+color: #616060;
+}
