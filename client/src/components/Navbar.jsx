@@ -1,16 +1,18 @@
+import { Link } from "react-router-dom"
+
 function Navbar() {
   return (
     <nav className="Navbar">
       <h1 className="logo">Electronic Store</h1>
       <ul className="list">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Shop</a></li>
-        <li><a href="#">Seller</a></li>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/products">Shop</Link></li>
+        <li><Link to="/seller">Seller</Link></li>
       </ul>
       <div className="side">
-      <a href="#" className="login">
+      <Link to="/signin" className="login">
       <i className="fa-regular fa-circle-user"></i>
-      </a>
+      </Link>
       <a href="#" className="cart">
       <i className="fa-brands fa-shopify"></i>
       </a>

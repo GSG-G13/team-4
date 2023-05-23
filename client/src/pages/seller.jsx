@@ -27,7 +27,7 @@ function Seller() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const response = await axios.post('http://localhost:9000/product', product)
+    const response = await axios.post('/api/product', product)
     console.log(response)
   }
 

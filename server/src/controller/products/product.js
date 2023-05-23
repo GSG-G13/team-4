@@ -1,5 +1,5 @@
 
-import { productQuery, getHomeProduct, filterProductsByPriceQuery, getAllProductsQuery, getProductsByTitleQuery } from '../../database/query/product.query.js'
+import { productQuery, getHomeProduct, filterProductsByPriceQuery, getAllProductsQuery, getProductsByTitleQuery, getProductByIdQuery } from '../../database/query/product.query.js'
 
 const getAllProductsController = async (req, res) => {
   try {
@@ -64,4 +64,27 @@ const filterProductsByPriceController = async (req, res) => {
   }
 }
 
-export { createProduct, homeProduct, filterProductsByPriceController, getAllProductsController, filterProductByName }
+const getProductById = async (req, res) =>{
+  try {
+    const {id} = req.params
+
+    const data = await getProductByIdQuery(id)
+
+    if(data.rows.length > 0){
+      res.status(200).json({
+        message:'get product by id successfully',
+        data: data.rows
+      })
+    }else{
+      res.status(404).json({
+        message:"there is no product with such id"
+      })
+    }
+
+    console.log(data.rows);
+  } catch (error) {
+    res.status(500).json({ message: 'Internal server error' })
+  }
+}
+
+export { createProduct, homeProduct, filterProductsByPriceController, getAllProductsController, filterProductByName,getProductById }

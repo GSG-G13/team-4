@@ -41,6 +41,7 @@ const signupController = async (req, res, next) => {
 
 const signIn = async (req, res, next) => {
   try {
+    console.log('am here');
     const { username, password } = req.body
     const value = await signInSchema.validateAsync({ username, password }, { abortEarly: false })
     // console.log(value)
@@ -50,11 +51,12 @@ const signIn = async (req, res, next) => {
         // console.log(password,rows[0].password);
         const match = await bcrypt.compare(password, rows[0].password)
         if (match) {
+          // console.log(match);
           const token = jwt.sign(rows[0].id,process.env.JWT_SECRET)
-
+          console.log(token);
           res.cookie("token", token).json({
             message: "User logged in successfully",
-            user,
+            token
           })
         } else {
           res.status(404).json({

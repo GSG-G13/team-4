@@ -1,15 +1,16 @@
 
 import React from 'react';
 import '../style/Card.css'
+import { Link } from 'react-router-dom';
 
 const ProductCard = ({product}) => {
-  console.log(product,'card');
   return (
-    <div className="product-card">
+    <div key={product.id} className="product-card">
       <div className="product-image">
      <img src={product.image} />
       </div>5
       <div className="product-title">
+        <Link to={`/product/` + product.id}>{product.title}</Link>
       <h2 >{product.title}</h2>
 </div>
 
