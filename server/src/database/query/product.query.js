@@ -23,28 +23,28 @@ const getProductsByTitleQuery = (title) => {
   const sql = {
     text: 'SELECT * FROM products WHERE title = $1',
     values: [title]
+    
   }
 
   return connection.query(sql)
 }
 
-
 const getAllProductsQuery = () => {
   const sql = {
-    text: `SELECT * FROM products`
-  };
+    text: 'SELECT * FROM products'
+  }
 
-  return connection.query(sql);
-};3
+  return connection.query(sql)
+}
 
 const filterProductsByPriceQuery = (price) => {
   const sql = {
-    text: `SELECT * FROM products WHERE price= $1 `,
+    text: 'SELECT * FROM products WHERE price= $1 ',
     values: [price]
-  };
+  }
 
-  return connection.query(sql);
-};
+  return connection.query(sql)
+}
 
 
 export { productQuery, getHomeProduct, getAllProductsQuery, filterProductsByPriceQuery, getProductsByTitleQuery }
