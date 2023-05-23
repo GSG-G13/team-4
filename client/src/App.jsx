@@ -1,6 +1,4 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
 import SignUp from './pages/Signup'
 import { Route, Routes } from 'react-router-dom';
@@ -21,14 +19,10 @@ function App() {
        <Route path="/" element={<Home />} />
        <Route path="/signUp" element={<SignUp />} />
        <Route path="/seller" element={<Seller />} />
+       <Route path="/cart" element={<CartPage />} />
+
        </Routes> 
 
-      <Routes>
-      {/* <Route path="/" element={<Home />} />
-      <Route path="/signUp" element={<SignUp />} /> */}
-        {/* <Route path="/" element={<Seller />} /> */}
-        <Route path="/" element={<CartPage />} />
-      </Routes>
     </div>
   );
 }
