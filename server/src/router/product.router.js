@@ -10,6 +10,6 @@ productRouter.get('/allproducts/:price', filterProductsByPriceController)
 productRouter.post('/product', auth, createProduct)
 productRouter.get('/products/:title', filterProductByName)
 productRouter.get('/product/:id', getProductById)
-productRouter.get('/products/:category', getProductByCategory)
+productRouter.get('/products/filter/:category', getProductByCategory)
 
 export default productRouter
