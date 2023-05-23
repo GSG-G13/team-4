@@ -1,18 +1,12 @@
-
-import './App.css'
+import { useState } from 'react'
 import SignUp from './pages/Signup'
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home'
-import ProductCard from './components/Card'
-import Sidebar from './components/SideBar'
+<<<<<<< HEAD
+import Navbar from './components/Navbar'
+=======
 import Seller from './pages/seller'
-
-import HeaderHome from './components/header'
-import Navbar from './components/Navbar';
-import CartPage from './pages/CartPage'
-import Details from './components/Details';
-import SignIn from './pages/Signin';
-import Shop from './pages/Shop';
+>>>>>>> d147bdc8d4bd723c8211b07b69a41c0175153e7a
 
 
 
@@ -20,27 +14,20 @@ function App() {
 
   return (
     <div className="App">
-
-      <HeaderHome/>
-   {/* <Sidebar/>
-=======
-=======
->>>>>>> main
-      <Navbar />
-   <Sidebar/>
- <ProductCard/>
-       <Routes>
-       <Route path="/" element={<Home />} />
-       <Route path="/signIn" element={<SignIn />} />
-       <Route path="/signUp" element={<SignUp />} />
-       <Route path="/seller" element={<Seller />} />
-       <Route path="/cart" element={<CartPage />} />
-
 <<<<<<< HEAD
-<<<<<<< HEAD
-       </Routes>  */}
+    <Navbar />
 
+      <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/signUp" element={<SignUp />} />
+=======
 
+      <Routes>
+      {/* <Route path="/" element={<Home />} />
+      <Route path="/signUp" element={<SignUp />} /> */}
+        <Route path="/" element={<Seller />} />
+>>>>>>> d147bdc8d4bd723c8211b07b69a41c0175153e7a
+      </Routes>
     </div>
   );
 }
