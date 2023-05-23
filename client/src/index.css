@@ -55,6 +55,11 @@
   margin-right: 10px;
   color: #333;
 }
+.side i {
+  font-size: 20px;
+  margin-right: 10px;
+  color: #222;
+}
 
 /* Define the styles for the Sign component */
 

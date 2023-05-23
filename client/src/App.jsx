@@ -10,6 +10,7 @@ import Seller from './pages/seller'
 import HeaderHome from './components/header'
 import Navbar from './components/Navbar';
 import CartPage from './pages/CartPage'
+import Details from './components/Details';
 import SignIn from './pages/Signin';
 import Shop from './pages/Shop';
 
@@ -19,15 +20,14 @@ function App() {
 
   return (
     <div className="App">
-<Shop/>
-      {/* <HeaderHome/> */}
+
+      <HeaderHome/>
    {/* <Sidebar/>
 =======
 =======
 >>>>>>> main
       <Navbar />
    <Sidebar/>
->>>>>>> main
  <ProductCard/>
        <Routes>
        <Route path="/" element={<Home />} />
@@ -39,6 +39,7 @@ function App() {
 <<<<<<< HEAD
 <<<<<<< HEAD
        </Routes>  */}
+
 
     </div>
   );
