@@ -24,7 +24,8 @@ function App() {
 
   return (
     <div className="App">
-
+      <HeaderHome/>
+{/* 
       <Routes>
 
 
@@ -44,7 +45,7 @@ function App() {
         </Route>
 
 
-      </Routes>
+      </Routes> */}
 
 
     </div>
