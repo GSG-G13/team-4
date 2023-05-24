@@ -21,7 +21,6 @@ const CartPage = () => {
 
   const handleRemoveFromCart = async (productId) => {
     try {
-      console.log('tessssst');
       await axios.delete(`/api/deletecart/${productId}`);
       setCartItems((prevCartItems) =>
         prevCartItems.filter((item) => item.product_id !== productId)
@@ -57,49 +56,46 @@ const CartPage = () => {
   };
 
   return (
-    <>
+    <div className='cart-container'>
       <h2>Cart</h2>
       {cartItems.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
-        <div className="cart">
-          <div className="productbar">
-            <ul className="grid-container">
-              <li>Products</li>
-              <li>Price</li>
-              <li>Quantity</li>
-              <li>Remove from cart</li>
-            </ul>
-          </div>
-          <div className="product">
+        <table className='cart-table' >
+          <thead>
+            <tr className='cart-header' >
+              <th className='cart-header-item'>Product</th>
+              <th className='cart-header-item'>Product-title</th>
+              <th className='cart-header-item'>Price</th>
+              <th className='cart-header-item'>Quantity</th>
+              <th className='cart-header-item'>Remove</th>
+            </tr>
+
             {cartItems.map((item) => (
-              <ul key={item.product_id} className="grid-container cart-item">
-                <li className="item-image">
-                  <div>
-                    <img src={item.image} alt={item.title} className="ProductImage" />
-                    <p>{item.title}</p>
-                  </div>
-                </li>
-                <li>${item.price}</li>
-                <li>
+              <tr className='cart-item' key={item.product_id}>
+                <td  className='cart-item-image'><img src={item.image} alt={item.title} /></td>
+                <td className='cart-item-name'>{item.title}</td>
+                <td className='cart-item-price'> ${item.price}</td>
+                <td className='cart-item-quantity'>
                   <input
                     type="number"
                     min="1"
                     value={item.count}
                     onChange={(e) => handleUpdateQuantity(item.product_id, e.target.value)}
+                    className='input-cart'
                   />
-                </li>
-                <li>
-                  <button onClick={() => handleRemoveFromCart(item.product_id)}>remove</button>
-                </li>
-              </ul>
+                  </td>
+
+                  <td className='cart-item-remove'><button onClick={() => handleRemoveFromCart(item.product_id)} className='remove-button'>remove</button></td>
+
+                  </tr> 
             ))}
-            <h3 className="total-price">Total Price: ${getTotalPrice()}</h3>
-            <Button name="Remove" />
-          </div>
-        </div>
+          </thead>
+
+          <h2 className='cart-total-price'>Total Price : $ {getTotalPrice()}</h2>
+        </table>
       )}
-    </>
+    </div>
   );
 };
 
