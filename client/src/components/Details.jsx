@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
 import '../style/details.css';
-import Button from './Button';
-
 import '../style/seller.css';
 
 function Details({ product }) {
@@ -46,13 +43,12 @@ function Details({ product }) {
 
       <div className="card_content">
         <div className="card_title">
-          <h1>{product.title}</h1>
+          <h1><span>product name: </span>{product.title}</h1>
+          <h2><span>price :</span> $ {product.price}</h2>
         </div>
 
-        <div className="card_price">
-          <h2>price : ${product.price}</h2>
-        </div>
         <div className="card_description">
+          <h3>Description</h3>
           <p>{product.description}</p>
         </div>
         <div className="card_btn">
