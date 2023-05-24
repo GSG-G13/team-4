@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
 import '../style/Sidebar.css'
 import { Link } from 'react-router-dom'
-function Sidebar() {
+import axios from "axios";
+
+function Sidebar({setPrice, price}) {
   const categories = ['phone','laptop','accessories'];
+
   return (
     <div className='sidebar'>
         <div className="searchTitle">
@@ -11,8 +14,10 @@ function Sidebar() {
 
         <div className="price">
         <label for="priceBar" className='priceBar'>Price</label>
-          <input type="range"  name="price" min="500" max="1000" id="price"/>
+          <input type="range" defaultValue={1000}  name="price" min={0}  max={1000} step={50}  id="price"  value={price}
+            onChange={(e) => setPrice(e.target.value)}/>
         </div>
+        
 
           <div className="categories">
           <h2>Categories</h2>
