@@ -1,6 +1,8 @@
 import React from 'react'
 import '../style/Sidebar.css'
+import { Link } from 'react-router-dom'
 function Sidebar() {
+  const categories = ['phone','laptop','accessories'];
   return (
     <div className='sidebar'>
         <div className="searchTitle">
@@ -15,27 +17,9 @@ function Sidebar() {
           <div className="categories">
           <h2>Categories</h2>
           <ul>
-            <li >
-              <a href="#"  className='active'>Electronics</a>
-            </li>
-            <li>
-              <a href="#">Fashion</a>
-            </li>
-            <li>
-              <a href="#">Home &amp; Garden</a>
-            </li>
-            <li>
-              <a href="#">Sports</a>
-            </li>
-            <li>
-              <a href="#">Toys</a>
-            </li>
-            <li>
-              <a href="#">Books</a>
-            </li>
-            <li>
-              <a href="#">Others</a>
-            </li>
+            {categories.map(category => <li key={category}>
+              <Link to={category}  className='active'>{category}</Link>
+            </li>)}
           </ul>
         </div>
 

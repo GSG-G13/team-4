@@ -20,15 +20,13 @@ function Seller() {
   )
 
   const handleFormChange = (e) => {
-    console.log(e.target.name, e.target.value)
     setProduct({...product, [e.target.name]:e.target.value})
   }
 
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const response = await axios.post('http://localhost:9000/product', product)
-    console.log(response)
+    const response = await axios.post('/api/product', product)
   }
 
 

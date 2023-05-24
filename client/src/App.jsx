@@ -13,6 +13,10 @@ import CartPage from './pages/CartPage'
 import Details from './components/Details';
 import SignIn from './pages/Signin';
 import Shop from './pages/Shop';
+import ProductDetails from './pages/ProductDetails';
+import Layout from './components/Layout';
+import ShopLayout from './components/ShopLayout';
+import Category from './pages/Category';
 
 
 
@@ -21,24 +25,26 @@ function App() {
   return (
     <div className="App">
 
-      <HeaderHome/>
-   {/* <Sidebar/>
-=======
-=======
->>>>>>> main
-      <Navbar />
-   <Sidebar/>
- <ProductCard/>
-       <Routes>
-       <Route path="/" element={<Home />} />
-       <Route path="/signIn" element={<SignIn />} />
-       <Route path="/signUp" element={<SignUp />} />
-       <Route path="/seller" element={<Seller />} />
-       <Route path="/cart" element={<CartPage />} />
+      <Routes>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-       </Routes>  */}
+
+
+        <Route path='/' element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="signin" element={<SignIn />} />
+          <Route path="signup" element={<SignUp />} />
+          <Route path="product/:id" element={<ProductDetails />} />
+          <Route path="products" element={<ShopLayout />} >
+            <Route index element={<Shop />}/>
+            <Route path=':category' element={<Category />}/>
+          </Route>
+          <Route path="/seller" element={<Seller />} />
+          <Route path="/cart" element={<CartPage />} />
+
+        </Route>
+
+
+      </Routes>
 
 
     </div>

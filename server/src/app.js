@@ -6,10 +6,10 @@ import cors from 'cors'
 const app = express()
 app.set('port', process.env.PORT)
 app.disable('x-powered-by')
-app.use(cookieParser())
 app.use(cors())
+app.use(cookieParser())
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
-app.use(router)
+app.use('/api',router)
 
 export default app
