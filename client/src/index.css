@@ -4,8 +4,12 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 /* Navbar container */
-.Navbar {
+/* .Navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -13,15 +17,15 @@
   padding: 15px;
   color: #333;
   margin-bottom: 40px;
-}
+} */
 
 /* Logo */
-.logo {
+/* .logo {
   font-size: 24px;
-}
+} */
 
 /* List */
-.list {
+/* .list {
   list-style: none;
   display: flex;
   margin: 0;
@@ -43,8 +47,9 @@
   color: #222;
   text-decoration: none;
 }
-
+*/
 /* Side icons */
+/*
 .side {
   display: flex;
   align-items: center;
@@ -59,11 +64,11 @@
   font-size: 20px;
   margin-right: 10px;
   color: #222;
-}
+} */
 
 /* Define the styles for the Sign component */
 
-.Sign {
+/* .Sign {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -119,4 +124,4 @@
 
 .products .product h4 {
   text-align: center;
-}
+}  */
