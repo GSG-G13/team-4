@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import '../style/home.css'
+import HeaderHome from "../components/header";
 
 
 const Home=()=>{
@@ -16,8 +17,12 @@ const Home=()=>{
 
 
 return(
+  <>
+  <HeaderHome/>
   <div className="products">
-  {data.map((product, i) => {
+    <h2>View Products</h2>
+    <div className="productItems">
+    {data.map((product, i) => {
     return(
       <div className="product" key={i+1}>
   <img src={product.image} alt="img" />
@@ -25,7 +30,10 @@ return(
   </div>
     )
   })}
+    </div>
+
   </div>
+  </>
 )
 }
 

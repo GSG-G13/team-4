@@ -3,11 +3,8 @@
   align-items: center;
   justify-content: space-between;
   background-color: #efefef;
-  padding: 20px;
-  position: fixed;
-  width: 100%;
-  box-shadow: 20px 20px 2px #eee;
-  z-index: 100;
+  padding: 25px;
+ 
 }
 
 .logo {
@@ -34,6 +31,7 @@
 
 .list li a:hover {
   color: #111;
+  border-bottom: 2px solid rgb(141, 141, 242);
 }
 
 .side {

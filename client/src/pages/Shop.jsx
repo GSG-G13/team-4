@@ -36,7 +36,7 @@ filteredProductByPrice()
   return (
 
     <div className="shop">
-
+      
       <div className="all-products">
 {filterProduct.length>0?
 filterProduct?.map((product) => <ProductCard key={product.id} product={product} />)

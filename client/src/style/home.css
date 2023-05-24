@@ -1,0 +1,35 @@
+.products{
+  margin: 25px 50px 25px 50px;
+}
+.products h2{
+  margin-top: 55px;
+  margin-bottom: 20px;
+    text-align: center;
+  
+  }
+  .products .productTitle{
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  
+  }
+.products .productItems{
+  display: flex;
+  gap: 30px;
+}
+.products .product{
+  padding-bottom: 15px;
+  border-radius: 10px;
+  border-bottom: 3px double rgb(221, 221, 255);
+}
+
+.product h4{
+  margin-top: 10px;
+  padding: 10px;
+}
+.product img{
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
