@@ -41,8 +41,10 @@ const signupController = async (req, res, next) => {
 
 const signIn = async (req, res, next) => {
   try {
+
     const { username, password } = req.body
     const value = await signInSchema.validateAsync({ username, password }, { abortEarly: false })
+
     if (value) {
       const { rows } = await signInQuery({ username })
       if (rows.length > 0) {
