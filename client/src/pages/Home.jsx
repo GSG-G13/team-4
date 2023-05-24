@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import '../style/home.css'
 
 
 const Home=()=>{
@@ -12,6 +13,8 @@ const Home=()=>{
   useEffect(() => {
     byHome()
   }, [])
+
+
 return(
   <div className="products">
   {data.map((product, i) => {
@@ -25,4 +28,6 @@ return(
   </div>
 )
 }
+
+
 export default Home;
