@@ -41,21 +41,21 @@ VALUES (
   true
 );
 
-INSERT INTO products (title, image, description, price, count)
-VALUES (
-  'iphone',
-  'https://imgs.search.brave.com/tCv_y1U67Wzg7I14UkXyw8JoIhRFEBNT7D86WELQvYU/rs:fit:759:225:1/g:ce/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5p/U3UyUmNDY2RtNzh4/YnhOREpNSlNnSGFF/byZwaWQ9QXBp',
-  'This is my post for the place',
-  200,
-  2
-),
-(
-  'iphone',
-  'https://imgs.search.brave.com/tCv_y1U67Wzg7I14UkXyw8JoIhRFEBNT7D86WELQvYU/rs:fit:759:225:1/g:ce/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5p/U3UyUmNDY2RtNzh4/YnhOREpNSlNnSGFF/byZwaWQ9QXBp',
-  'This is my post for the place',
-  500,
-  1
-);
+-- INSERT INTO products (title, image, description, price, count)
+-- VALUES (
+--   'iphone',
+--   'https://imgs.search.brave.com/tCv_y1U67Wzg7I14UkXyw8JoIhRFEBNT7D86WELQvYU/rs:fit:759:225:1/g:ce/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5p/U3UyUmNDY2RtNzh4/YnhOREpNSlNnSGFF/byZwaWQ9QXBp',
+--   'This is my post for the place',
+--   200,
+--   2
+-- ),
+-- (
+--   'iphone',
+--   'https://imgs.search.brave.com/tCv_y1U67Wzg7I14UkXyw8JoIhRFEBNT7D86WELQvYU/rs:fit:759:225:1/g:ce/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5p/U3UyUmNDY2RtNzh4/YnhOREpNSlNnSGFF/byZwaWQ9QXBp',
+--   'This is my post for the place',
+--   500,
+--   1
+-- );
 
 
 COMMIT;
