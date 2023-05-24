@@ -21,6 +21,7 @@ const CartPage = () => {
 
   const handleRemoveFromCart = async (productId) => {
     try {
+      console.log('tessssst');
       await axios.delete(`/api/deletecart/${productId}`);
       setCartItems((prevCartItems) =>
         prevCartItems.filter((item) => item.product_id !== productId)
@@ -36,7 +37,7 @@ const CartPage = () => {
       setCartItems((prevCartItems) =>
         prevCartItems.map((item) => {
           if (item.product_id === productId) {
-            return { ...item, count: quantity }; 
+            return { ...item, count: quantity };
           }
           return item;
         })
@@ -45,7 +46,7 @@ const CartPage = () => {
       console.error('Error updating quantity:', error);
     }
   };
-  
+
 
   const getTotalPrice = () => {
     let totalPrice = 0;
@@ -89,7 +90,7 @@ const CartPage = () => {
                   />
                 </li>
                 <li>
-                  <Button onClick={() => handleRemoveFromCart(item.product_id)} name="Remove" />
+                  <button onClick={() => handleRemoveFromCart(item.product_id)}>remove</button>
                 </li>
               </ul>
             ))}
