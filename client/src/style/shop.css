@@ -1,17 +1,13 @@
-.shop {
-  margin-left: 270px;
-  margin-right: 20px;
-  padding-top: 120px;
+
+.shop{
+  display: flex;
+  justify-content: end;
+  padding: 20px;
 }
 
-.all-products {
+.allProducts{
+  width: 83%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-}
-
-@media (max-width: 768px) {
-  .shop {
-    
-  }
+  grid-template-columns: repeat(4,1fr);
+  gap: 10px;
 }
