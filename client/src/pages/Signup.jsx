@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Link, useNavigate } from "react-router-dom";
-
+import '../style/signup.css'
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -36,9 +36,10 @@ const SignUp = () => {
 
   return (
     <div className='Sign'>
-      <h1>SignUp</h1>
       {error && <p>{error}</p>}
       <form onSubmit={handleSignUp}>
+      <h1>SignUp</h1>
+
         <input
           type="text"
           placeholder="Username"
@@ -59,8 +60,9 @@ const SignUp = () => {
         />
 
         <button type="submit">SignUp</button>
-      </form>
       <h3>I have an account <Link to="/signin">Sign-in</Link></h3>
+
+      </form>
 
     </div>
   );

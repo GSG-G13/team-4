@@ -34,9 +34,10 @@ const SignIn = () => {
 
   return (
     <div className='Sign'>
-      <h1>SignIn</h1>
       {error && <p>{error}</p>}
       <form onSubmit={handleSignIn}>
+      <h1>SignIn</h1>
+
         <input
           type="text"
           placeholder="Username"
@@ -51,9 +52,10 @@ const SignIn = () => {
         />
 
         <button type="submit">SignIn</button>
+      <h3>I don't have an account <Link to="/signup">Sign-up</Link></h3>
+
       </form>
 
-      <h3>I don't have an account <Link to="/signup">Sign-up</Link></h3>
     </div>
   );
 };

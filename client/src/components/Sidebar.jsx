@@ -3,13 +3,13 @@ import '../style/Sidebar.css'
 import { Link } from 'react-router-dom'
 import axios from "axios";
 
-function Sidebar({setPrice, price}) {
+function Sidebar({setPrice, price, setTitle, title}) {
   const categories = ['phone','laptop','accessories'];
 
   return (
     <div className='sidebar'>
         <div className="searchTitle">
-          <input type="text"  placeholder='Search for product' className='searchInput'/>
+          <input type="text"  placeholder='Search for product' className='searchInput' value={title} onChange={(e) => setTitle(e.target.value)}/>
         </div>
 
         <div className="price">
