@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
+  padding-top: 240px;
 }
 
 .seller-form{
@@ -23,7 +23,7 @@
   gap: 15px;
 }
 
- input, textarea{
+ .seller-form input, .seller-form textarea{
   padding: 10px 20px;
   border: none;
   outline-width: 0;
