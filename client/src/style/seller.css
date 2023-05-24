@@ -13,7 +13,7 @@
   width: 70%;
   gap: 20px;
   padding: 20px;
-  box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.2);
 
 }
 
@@ -23,11 +23,21 @@
   gap: 15px;
 }
 
- .seller-form input, .seller-form textarea{
-  padding: 10px 20px;
+.seller-form input, textarea{
+  padding: 10px;
+  width: 100%;
   border: none;
+  border-bottom: 1px solid #ccc;
+  border-radius: 4px;
   outline-width: 0;
-  box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.2);
+  font-size: 17px;
+  transition: all 0.3s ease-in-out;
+}
+
+.seller-form input:focus::placeholder{
+  transition: 0.3s ease-in-out;
+  font-size: 13px;
+  color: #0056b3;
 }
 
  select{
@@ -37,7 +47,7 @@
   box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.2);
 }
 
- button{
+.seller-form button{
   padding: 15px 20px;
   width: fit-content;
   margin: auto;
