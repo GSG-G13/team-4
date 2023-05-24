@@ -1,15 +1,19 @@
 /* Navbar container */
+
+@import url('https://fonts.googleapis.com/css2?family=Alata&family=Bitter&family=Mukta&family=Roboto:wght@500&family=Saira+Condensed:wght@300&family=Secular+One&display=swap');
+
+
 .Navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #eee;
   padding: 15px;
   color: #333;
 }
 
 /* Logo */
 .logo {
+  font-family: 'Roboto';
   font-size: 24px;
 }
 
@@ -26,6 +30,8 @@
 }
 
 .list li a {
+  font-family: 'Bitter';
+font-size: 20px;
   color: #333;
   text-decoration: none;
   transition: 0.8;
@@ -44,12 +50,13 @@
 }
 
 .side a {
-  font-size: 20px;
+  font-size: 25px;
   margin-right: 10px;
   color: #333;
 }
+
 .side i {
-  font-size: 20px;
+  font-size: 25px;
   margin-right: 10px;
   color: #222;
 }
