@@ -4,11 +4,11 @@ import { Outlet } from 'react-router'
 
 function ShopLayout() {
   const [price, setPrice] = useState(0);
-
+  const [title,setTitle] = useState('');
   return (
     <div>
-      <Sidebar setPrice={setPrice} price={price}  />
-      <Outlet context={price} />
+      <Sidebar setPrice={setPrice} price={price} setTitle={setTitle} title={title}  />
+      <Outlet context={[price,title]} />
     </div>
   )
 }

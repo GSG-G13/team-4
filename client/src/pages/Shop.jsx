@@ -7,19 +7,27 @@ import Sidebar from "../components/SideBar";
 import { useParams, useOutletContext } from "react-router-dom";
 
 const Shop = () => {
-const props = useOutletContext();
-console.log(props);
+  const props = useOutletContext();
   const [products, setProducts] = useState([])
-  const [filterProduct, setFilterProduct]= useState([])
+  const [filterProduct, setFilterProduct] = useState([])
+  const [filterProductTitle, setFilterProductTitle] = useState([])
+  console.log(filterProductTitle);
 
   const getAllProducts = async () => {
     const { data } = await axios.get('/api/products')
     setProducts([...products, ...data.rows])
   }
 
-  const filteredProductByPrice = async ()=>{
-    const {data}=await axios.get(`/api/allProducts/${props}`)
+  const filteredProductByPrice = async () => {
+    const { data } = await axios.get(`/api/allProducts/${props[0]}`)
     setFilterProduct(data);
+  }
+
+  const filteredProductByTitle = async () => {
+    const { data } = await axios.get(`/api/products/${props[1]}`)
+    console.log(data);
+
+    setFilterProductTitle(data);
   }
 
 
@@ -27,21 +35,29 @@ console.log(props);
     getAllProducts();
   }, []);
 
-  useEffect(()=>{
-filteredProductByPrice()
-  },[props])
+  useEffect(() => {
+    filteredProductByPrice()
+  }, [props])
 
- 
+  useEffect(() => {
+    filteredProductByTitle()
+  }
+    , [props])
+
+
   return (
 
     <div className="shop">
 
       <div className="allProducts">
-{filterProduct.length>0?
-filterProduct?.map((product) => <ProductCard key={product.id} product={product} />)
-:
-products?.map((product) => <ProductCard key={product.id} product={product} />)
-}
+
+        {filterProductTitle.length > 0 ? filterProductTitle?.map((product) => <ProductCard key={product.id} product={product} />) :
+
+          filterProduct.length > 0 ?
+            filterProduct?.map((product) => <ProductCard key={product.id} product={product} />)
+            :
+            products?.map((product) => <ProductCard key={product.id} product={product} />)
+        }
       </div>
 
     </div>
