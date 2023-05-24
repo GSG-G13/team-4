@@ -1,0 +1,49 @@
+
+.head_image{
+position: relative;
+background: url(' https://browserstack.wpenginepowered.com/wp-content/themes/browserstack/img/guide/guide-banner-image@2x.jpg ');
+background-repeat: no-repeat;
+background-size: cover;
+height: 80vh;
+display: flex;
+justify-content: left;
+opacity: 1;
+
+}
+
+.head_content{
+position: absolute;
+text-align: start;
+color: #eee;
+padding-top: 6%;
+margin-top: 90px;
+padding-left: 80px;
+
+} 
+.head_content h1{
+
+  font-size: 40px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.head_content p{
+  margin-top: 50px;
+  line-height: 1.5;
+  font-size: 17px;
+}
+.head_content span{
+  font-size: 20px;
+color: rgb(221, 221, 247);
+
+}
+.head_content .head_button{
+margin-top: 70px;
+background-color:#212a3b ;
+border: 2px solid  #515c70;;
+width: 150px;
+border-radius: 3px;
+color:  #eee;;
+font-weight: bold;
+font-size: 18px;
+}

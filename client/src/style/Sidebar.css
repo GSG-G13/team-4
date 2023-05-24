@@ -1,55 +1,68 @@
-
-
-.sidebar{
-  background-color: #f4f4f4;
-  padding: 10px 5px 10px 5px;
-  text-align: left;
+.sidebar {
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 5px;
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  top: 72px;
+  z-index: 100;
 }
-.sidebar div{
- margin: 40px 10px 40px 10px;
+
+.searchTitle {
+  margin-bottom: 20px;
 }
 
 .searchInput {
-  width: 250px;
-  background-color: #eee;
-border:1px solid #d6d2d2;
-padding: 12px 2px 12px 10px;
-border-radius: 5px;
-}
-.priceBar{
-  font-size: 20px;
-  font-weight: 500;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  border: 1px solid gray;
 }
 
-.categories h2{
-   font-size: 25px;
-  font-weight: 700;
+.priceBar {
+  font-size: 16px;
+  margin-bottom: 10px;
 }
-.categories ul li{
+
+.price input[type="range"] {
+  width: 100%;
+}
+
+.categories {
   margin-top: 20px;
+}
+
+.categories h2 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.categories ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.categories li {
   margin-bottom: 15px;
 }
-.categories{
-  display: block;
-text-align: left;
-}
-.categories ul li{
-  list-style: none;
-  display: block;
-margin-left: -20px;
 
+.categoryLink {
+  color: #333;
+  transition: color 0.3s;
+  font-size: 17px;
 }
-li a{
-  color: rgb(155, 155, 155);
-font-weight: 400px;
-font-size: 15px;
-text-decoration: none;
-}
- .active{
-  border-bottom: 1px solid #333232;
 
+.categoryLink:hover {
+  color: #111;
 }
-li a:hover{
-  border-bottom: 1px solid #5a5959;
-color: #616060;
+
+/* Media Queries for Responsiveness */
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+  }
 }

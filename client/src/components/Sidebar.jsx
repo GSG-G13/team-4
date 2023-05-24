@@ -23,7 +23,7 @@ function Sidebar({setPrice, price, setTitle, title}) {
           <h2>Categories</h2>
           <ul>
             {categories.map(category => <li key={category}>
-              <Link to={category}  className='active'>{category}</Link>
+              <Link to={category}  className='active categoryLink'>{category}</Link>
             </li>)}
           </ul>
         </div>

@@ -5,6 +5,7 @@ import Input from "../components/Input";
 import axios from "axios";
 import Sidebar from "../components/SideBar";
 import { useParams, useOutletContext } from "react-router-dom";
+import "../style/shop.css"
 
 const Shop = () => {
   const props = useOutletContext();
