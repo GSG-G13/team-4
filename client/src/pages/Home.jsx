@@ -19,12 +19,12 @@ const Home=()=>{
 return(
   <>
   <HeaderHome/>
-  <div className="products">
+  <div className="products-home">
     <h2>View Products</h2>
     <div className="productItems">
-    {data.map((product, i) => {
+    {data.map((product) => {
     return(
-      <div className="product" key={i+1}>
+      <div className="product-home" key={product.id}>
   <img src={product.image} alt="img" />
   <h4>{product.title}</h4>
   </div>

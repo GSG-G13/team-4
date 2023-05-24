@@ -15,9 +15,9 @@ function Navbar() {
       <Link to="signin" className="login">
       <i className="fa-regular fa-circle-user"></i>
       </Link>
-      <a href="#" className="cart">
+      <Link to="/cart" className="cart">
       <i className="fa-brands fa-shopify"></i>
-      </a>
+      </Link>
       </div>
     </nav>
   )
