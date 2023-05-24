@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Sidebar from './SideBar'
 import { Outlet } from 'react-router'
 
 function ShopLayout() {
+  const [price, setPrice] = useState(0);
+
   return (
     <div>
-      <Sidebar />
-      <Outlet />
+      <Sidebar setPrice={setPrice} price={price}  />
+      <Outlet context={price} />
     </div>
   )
 }

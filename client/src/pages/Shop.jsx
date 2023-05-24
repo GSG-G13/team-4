@@ -1,32 +1,35 @@
 
-
 import React, { useEffect, useState } from "react";
 import ProductCard from "../components/Card";
 import Input from "../components/Input";
 import axios from "axios";
 import Sidebar from "../components/SideBar";
-import { useParams } from "react-router-dom";
+import { useParams, useOutletContext } from "react-router-dom";
 
 const Shop = () => {
-  const [min, setMin] = useState(0)
-  const [max, setMax] = useState(0)
-
-
-
+const props = useOutletContext();
+console.log(props);
   const [products, setProducts] = useState([])
+  const [filterProduct, setFilterProduct]= useState([])
 
-  // const filterPrice= products.filter((product)=>product.price>=min && product.price<=max)
   const getAllProducts = async () => {
     const { data } = await axios.get('/api/products')
-    // console.log(data.rows);
     setProducts([...products, ...data.rows])
+  }
+
+  const filteredProductByPrice = async ()=>{
+    const {data}=await axios.get(`/api/allProducts/${props}`)
+    setFilterProduct(data);
   }
 
 
   useEffect(() => {
-    getAllProducts()
+    getAllProducts();
+  }, []);
 
-  }, [])
+  useEffect(()=>{
+filteredProductByPrice()
+  },[props])
 
  
   return (
@@ -34,7 +37,11 @@ const Shop = () => {
     <div className="shop">
 
       <div className="allProducts">
-        {products?.map((product) => <ProductCard key={product.id} product={product} />)}
+{filterProduct.length>0?
+filterProduct?.map((product) => <ProductCard key={product.id} product={product} />)
+:
+products?.map((product) => <ProductCard key={product.id} product={product} />)
+}
       </div>
 
     </div>
