@@ -54,7 +54,8 @@ const signIn = async (req, res, next) => {
           console.log(token);
           res.cookie("token", token).json({
             message: "User logged in successfully",
-            token
+            token,
+            user: rows[0].admin
           })
         } else {
           res.status(404).json({

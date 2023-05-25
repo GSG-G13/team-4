@@ -6,6 +6,7 @@ import '../style/seller.css';
 function Details({ product }) {
   const [cartItems, setCartItems] = useState([]);
   const [showMessage, setShowMessage] = useState(false);
+  const auth = JSON.parse(localStorage.getItem('user'))
 
   useEffect(() => {
     fetchCartItems();
@@ -52,7 +53,7 @@ function Details({ product }) {
           <p>{product.description}</p>
         </div>
         <div className="card_btn">
-          <button onClick={addToCart}>Add to cart</button>
+          <button onClick={auth.token ? addToCart : null}>Add to cart</button>
         </div>
 
         {showMessage && (

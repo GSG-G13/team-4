@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -8,6 +9,7 @@ const SignIn = () => {
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleSignIn = async (e) => {
     e.preventDefault();
@@ -21,8 +23,9 @@ const SignIn = () => {
       });
       
       if (response.ok) {
-        console.log(await response.json());
-        
+        const userData = await response.json();
+        localStorage.setItem('user', JSON.stringify(userData));
+        navigate('/');
       } else {
         console.log('response error');
       }

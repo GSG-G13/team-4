@@ -1,6 +1,7 @@
 
 import React from 'react';
 import '../style/header.css';
+import { Link } from 'react-router-dom';
 
 const HeaderHome = () => {
   return (
@@ -20,7 +21,7 @@ const HeaderHome = () => {
       <div className="headerGreeting">
         <p className="welcomeP">Discover a world of technology at our online shop. </p>
         <span><p className="parag">Find the latest phones, laptops, and electronic devices to elevate your digital experience. Shop now and unlock the future of innovation!</p></span>
-        <button className='headBtn' > Shop Now </button>
+        <Link to='/products' className='headBtn' > Shop Now </Link>
       </div>
     </>
   )
