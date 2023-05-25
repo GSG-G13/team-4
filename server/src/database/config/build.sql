@@ -1,6 +1,6 @@
 BEGIN;
 
-DROP TABLE IF EXISTS users, products,  cart,productCart,  CASCADE;
+DROP TABLE IF EXISTS users, products,  cart,productCart CASCADE;
 
 CREATE TABLE users(
   
