@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import axios from 'axios'
 
 const SignIn = () => {
 
@@ -14,24 +14,21 @@ const SignIn = () => {
   const handleSignIn = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('/api/signin', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ username, password }),
-      });
-      
-      if (response.ok) {
-        const userData = await response.json();
+      const response = await axios.post('/api/signin', { username, password });
+      if (response.status === 200) {
+        const userData = response.data.user;
         localStorage.setItem('user', JSON.stringify(userData));
         navigate('/');
       } else {
-        console.log('response error');
+        console.log(response);
       }
     } catch (error) {
-      setError('An error occurred');
-      console.log('An error occurred', error.message)
+      if (error.response.data?.message?.details?.[0].message) {
+        setError(error.response.data.message.details[0].message);
+      } else {
+        setError(error.response.data.message);
+      }
+
     }
   };
 
@@ -39,7 +36,7 @@ const SignIn = () => {
     <div className='Sign'>
       {error && <p>{error}</p>}
       <form onSubmit={handleSignIn}>
-      <h1>SignIn</h1>
+        <h1>SignIn</h1>
 
         <input
           type="text"
@@ -55,7 +52,7 @@ const SignIn = () => {
         />
 
         <button type="submit">SignIn</button>
-      <h3>I don't have an account <Link to="/signup">Sign-up</Link></h3>
+        <h3>I don't have an account <Link to="/signup">Sign-up</Link></h3>
 
       </form>
 

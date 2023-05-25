@@ -8,7 +8,7 @@ function Navbar() {
       <ul className="list">
         <li><Link to="/">Home</Link></li>
         <li><Link to="products">Shop</Link></li>
-        {auth.user ? <li><Link to="seller">Seller</Link></li> : null}
+        {auth?.admin && <li><Link to="seller">Seller</Link></li> }
       </ul>
       <div className="side">
         <Link to="signin" className="login">
