@@ -55,22 +55,22 @@ const signIn = async (req, res, next) => {
           res.cookie("token", token).json({
             message: "User logged in successfully",
             token,
-            user: rows[0].admin
+            user: rows[0]
           })
         } else {
-          res.status(404).json({
+          res.status(400).json({
             message: 'password or username is not correct'
           })
         }
       } else {
-        res.status(404).json({
+        res.status(400).json({
           message: 'password or username is not correct'
 
         })
       }
     }
   } catch (error) {
-    res.status(404).json({
+    res.status(400).json({
       message: error
     })
   }
