@@ -1,33 +1,27 @@
 .sidebar {
-  background-color: #f2f2f2;
-  padding: 20px;
-  border-radius: 5px;
-  width: 250px;
+  width: 240px;
   height: 100vh;
   position: fixed;
-  top: 72px;
-  z-index: 100;
-}
-
-.searchTitle {
-  margin-bottom: 20px;
+  margin-top: 10px;
+  padding: 20px;
 }
 
 .searchInput {
   width: 100%;
-  padding: 10px;
+  padding: 7px 10px;
   border-radius: 5px;
   border: none;
   border: 1px solid gray;
+  margin-bottom: 20px;
 }
 
 .priceBar {
   font-size: 16px;
-  margin-bottom: 10px;
 }
 
 .price input[type="range"] {
   width: 100%;
+  margin-bottom: 20px;
 }
 
 .categories {
@@ -50,19 +44,13 @@
 }
 
 .categoryLink {
-  color: #333;
-  transition: color 0.3s;
+  color: #555;
+  transition: color 0.5s;
   font-size: 17px;
+  text-decoration: none;
 }
 
 .categoryLink:hover {
-  color: #111;
-}
-
-/* Media Queries for Responsiveness */
-
-@media (max-width: 768px) {
-  .sidebar {
-    width: 100%;
-  }
+  color: #333;
+  text-decoration: underline;
 }

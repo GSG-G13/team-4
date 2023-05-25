@@ -19,8 +19,8 @@ const Home=()=>{
 return(
   <>
   <HeaderHome/>
-  {/* <div className="products-home">
-    <h2>View Products</h2>
+  <div className="products-home">
+    {/* <h2>View Products</h2> */}
     <div className="productItems">
     {data.map((product) => {
     return(
@@ -32,7 +32,7 @@ return(
   })}
     </div>
 
-  </div> */}
+  </div>
   </>
 )
 }
