@@ -1,15 +1,14 @@
 
-import bcrypt from 'bcrypt';
-import  jwt from 'jsonwebtoken'
+import bcrypt from 'bcrypt'
+import jwt from 'jsonwebtoken'
 
-import { signupQuery, signInQuery } from '../../database/query/user.query.js';
-import { signupSchema, signInSchema } from '../../utilis/validation/schema.js';
+import { signupQuery, signInQuery } from '../../database/query/user.query.js'
+import { signupSchema, signInSchema } from '../../utilis/validation/schema.js'
 
 const signupController = async (req, res, next) => {
   try {
     const { username, email, password } = req.body
     const role = false
-
 
     const value = await signupSchema.validateAsync({ username, email, password }, { abortEarly: false })
 
@@ -41,7 +40,6 @@ const signupController = async (req, res, next) => {
 
 const signIn = async (req, res, next) => {
   try {
-
     const { username, password } = req.body
     const value = await signInSchema.validateAsync({ username, password }, { abortEarly: false })
 
@@ -50,10 +48,9 @@ const signIn = async (req, res, next) => {
       if (rows.length > 0) {
         const match = await bcrypt.compare(password, rows[0].password)
         if (match) {
-          const token = jwt.sign(rows[0].id,process.env.JWT_SECRET)
-          console.log(token);
-          res.cookie("token", token).json({
-            message: "User logged in successfully",
+          const token = jwt.sign(rows[0].id, process.env.JWT_SECRET)
+          res.cookie('token', token).json({
+            message: 'User logged in successfully',
             token,
             user: rows[0].admin
           })

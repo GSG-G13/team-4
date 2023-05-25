@@ -3,19 +3,3 @@
   padding: 0;
   box-sizing: border-box;
 }
-
-
-/* .products {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
-
-.products .product img {
-  width: 180px;
-  height: 150px;
-}
-
-.products .product h4 {
-  text-align: center;
-}   */
