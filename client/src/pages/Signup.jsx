@@ -22,24 +22,26 @@ const SignUp = () => {
         body: JSON.stringify({ username, email, password }),
       });
       if (response.ok) {
-        navigate("/signin");
+        navigate('/signin');
         console.log('SignUp successful');
       } else {
-        // throw new Error('SignUp failed');
-        console.log(response);
+        const responseData = await response.json();
+        setError(responseData.message);
+
       }
     } catch (error) {
       setError('An error occurred');
-      console.log('An error occurred', error.message)
+      console.log('An error occurred', error.message);
     }
   };
+  
 
   return (
     <div className='Sign'>
-      {error && <p>{error}</p>}
+      {error && <p className="error">{error}</p>}
       <form onSubmit={handleSignUp}>
-      <h1>SignUp</h1>
-
+        <h1>SignUp</h1>
+  
         <input
           type="text"
           placeholder="Username"
@@ -58,14 +60,13 @@ const SignUp = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-
+  
         <button type="submit">SignUp</button>
-      <h3>I have an account <Link to="/signin">Sign-in</Link></h3>
-
+        <h3>I have an account <Link to="/signin">Sign-in</Link></h3>
       </form>
-
     </div>
   );
+  
 };
 
 export default SignUp;

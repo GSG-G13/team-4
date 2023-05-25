@@ -1,87 +1,76 @@
-
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ProductCard from "../components/Card";
-import Input from "../components/Input";
 import axios from "axios";
-import Sidebar from "../components/SideBar";
-import { useParams, useOutletContext } from "react-router-dom";
-import "../style/shop.css"
+import {useOutletContext } from "react-router-dom";
+import "../style/shop.css";
 
-import ReactPaginate from 'react-paginate';
+import ReactPaginate from "react-paginate";
 //this package is for pagination to create buttons very easily to move from page to another
-
 
 const Shop = () => {
   const props = useOutletContext();
-  const [products, setProducts] = useState([])
-  const [filterProduct, setFilterProduct] = useState([])
-  const [filterProductTitle, setFilterProductTitle] = useState([])
+  const [products, setProducts] = useState([]);
+  const [filterProduct, setFilterProduct] = useState([]);
+  const [filterProductTitle, setFilterProductTitle] = useState([]);
   //this state represents which page we are in and we will change it when we click on the button
-  const [pageNumber, setPageNumber] = useState(0)
+  const [pageNumber, setPageNumber] = useState(0);
   //here we want to know how many products we need to show  per page
-  const productsPerPage = 10
+  const productsPerPage = 10;
   // this to store the page we have visited
 
-  const pagesVisited = pageNumber * productsPerPage
+  const pagesVisited = pageNumber * productsPerPage;
   // now we want to decide how many products we need to display in 1 page
   //this function will take the products and slice it to display the products we need to display
   // 4 page we want to display from 40 - 50 then we map through the displayProducts and display them
-  const displayProducts = products.slice(pagesVisited, pagesVisited + productsPerPage)
-    .map((product) => <ProductCard key={product.id} product={product} />)
-  // if the number decimal it will round it up to get the number of btn each btn show 10 product 
-  const pageCount = Math.ceil(products.length / productsPerPage)
+  const displayProducts = products
+    .slice(pagesVisited, pagesVisited + productsPerPage)
+    .map((product) => <ProductCard key={product.id} product={product} />);
+  // if the number decimal it will round it up to get the number of btn each btn show 10 product
+  const pageCount = Math.ceil(products.length / productsPerPage);
 
   const changePage = ({ selected }) => {
-    setPageNumber(selected)
-  }
+    setPageNumber(selected);
+  };
   const getAllProducts = async () => {
-    const { data } = await axios.get('/api/products')
-    setProducts([...data.rows])
-  }
+    const { data } = await axios.get("/api/products");
+    setProducts([...data.rows]);
+  };
 
   const filteredProductByPrice = async () => {
-    const { data } = await axios.get(`/api/allProducts/${props[0]}`)
+    const { data } = await axios.get(`/api/allProducts/${props[0]}`);
     setFilterProduct(data);
-  }
+  };
 
   const filteredProductByTitle = async () => {
-    const { data } = await axios.get(`/api/products/${props[1]}`)
+    const { data } = await axios.get(`/api/products/${props[1]}`);
 
     setFilterProductTitle(data);
-  }
-
+  };
 
   useEffect(() => {
     getAllProducts();
   }, []);
 
   useEffect(() => {
-    filteredProductByPrice()
-  }, [props])
+    filteredProductByPrice();
+  }, [props]);
 
   useEffect(() => {
-    filteredProductByTitle()
-  }
-    , [props])
-
+    filteredProductByTitle();
+  }, [props]);
 
   return (
-
     <div className="shop">
-
       <div className="allProducts">
-
-        {filterProductTitle.length > 0 ?
-          filterProductTitle?.map((product) => <ProductCard key={product.id} product={product} />)
-          :
-          filterProduct.length > 0 ?
-            filterProduct?.map((product) => <ProductCard key={product.id} product={product} />)
-            :
-            displayProducts
-
-        }
-
-
+        {filterProductTitle.length > 0
+          ? filterProductTitle?.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))
+          : filterProduct.length > 0
+          ? filterProduct?.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))
+          : displayProducts}
       </div>
 
       {/*
@@ -107,10 +96,9 @@ const Shop = () => {
         nextLinkClassName={"nextBttn"}
         disabledClassName={"paginationDisabled"}
         activeClassName={"paginationActive"}
-
       />
     </div>
-  )
-}
+  );
+};
 
 export default Shop;
