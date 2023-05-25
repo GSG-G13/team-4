@@ -1,5 +1,4 @@
 /* Card.css */
-
 .product-card {
   background-color: #f1f1f1;
   border-radius: 8px;
@@ -8,8 +7,8 @@
 }
 
 .product-image img {
-  width: 260px;
-  height: 230px;
+  width: 180px;
+  height: 180px;
   border-radius: 8px;
 }
 
