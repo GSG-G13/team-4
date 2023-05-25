@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ProductCard from "../components/Card";
-import Input from "../components/Input";
 import axios from "axios";
-import Sidebar from "../components/SideBar";
-import { useParams, useOutletContext } from "react-router-dom";
+import {useOutletContext } from "react-router-dom";
 import "../style/shop.css";
 
 import ReactPaginate from "react-paginate";
@@ -88,7 +86,7 @@ const Shop = () => {
       
 
       */}
-      {/* <ReactPaginate
+      <ReactPaginate
         previousLabel={"previous"}
         nextLabel={"next"}
         pageCount={pageCount}
@@ -98,7 +96,7 @@ const Shop = () => {
         nextLinkClassName={"nextBttn"}
         disabledClassName={"paginationDisabled"}
         activeClassName={"paginationActive"}
-      /> */}
+      />
     </div>
   );
 };
