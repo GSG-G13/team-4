@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../style/cart.css';
-import Button from './Button';
-
 const CartPage = () => {
   const [cartItems, setCartItems] = useState([]);
 

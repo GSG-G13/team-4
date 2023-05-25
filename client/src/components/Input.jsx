@@ -1,5 +1,3 @@
-import React from 'react'
-
 function Input({ name, value, setFunction }) {
 
   return (
@@ -8,7 +6,6 @@ function Input({ name, value, setFunction }) {
       <input
         name={name}
         type="text"
-        // placeholder="product Name"
         value={value}
         onChange={setFunction} />
     </label>

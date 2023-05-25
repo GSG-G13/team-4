@@ -4,7 +4,7 @@ import Input from '../components/Input'
 import Select from '../components/Select'
 import TestArea from '../components/TestArea'
 import '../style/seller.css'
-import { useEffect, useState } from 'react'
+import {useState } from 'react'
 function Seller() {
 
   const options = ['phone','laptop','accessories']

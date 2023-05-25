@@ -1,5 +1,3 @@
-import React from 'react'
-
 function Select({ name,options, value, setFunction }) {
   return (
     <select

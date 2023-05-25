@@ -1,10 +1,7 @@
 import { Link } from "react-router-dom"
 import '../style/navbar.css'
 function Navbar() {
-  const token = document.cookie.split('=')[[1]];
-  // console.log(token);
-  const auth = JSON.parse(localStorage.getItem('user'));
-  console.log(auth,'here');
+  const auth = JSON.parse(localStorage.getItem('user'))
   return (
     <nav className="Navbar">
       <h1 className="logo">AMH Store</h1>

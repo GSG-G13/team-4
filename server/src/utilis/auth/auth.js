@@ -12,8 +12,7 @@ const auth = async (req, res, next) => {
     }
 
     const userId = jwt.verify(accessToken, process.env.JWT_SECRET)
-    const data = await getUserData( {userId} )
-    console.log(data.rows);
+    const data = await getUserData({ userId })
 
     req.user = {
       id: data.rows[0].id

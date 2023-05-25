@@ -7,7 +7,6 @@ const updateQuantityController = async (req, res) => {
 
   try {
     await updateProductQuantityInCart(id, productId, quantity)
-    console.log(productId)
     res.json({ message: 'Quantity updated successfully' })
   } catch (error) {
     console.error(error)
