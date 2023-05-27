@@ -1,14 +1,18 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import '../style/header.css';
 import { motion } from "framer-motion"
 import { Link } from "react-router-dom"
 
 const HeaderHome = () => {
+  const [show, setShow] = useState(true);
   const token = document.cookie.split('=')[1]
+  const showMessage =  () => {
+    setShow(false);
+  }
   return (
     <div className='header'>
-      {!token && <div className="sign-message">
+      {!token && <div className="sign-message" style={{ display: show ? 'block' : 'none' }}>
         <p>if you want to be able to buy and save your cart products, you need to sign in or sign up. </p>
         <p>
           <Link to='/signin'
@@ -19,11 +23,11 @@ const HeaderHome = () => {
         <p>
           <Link to='/signup'
             className="sign-in-button"
-          >Sign in</Link>
+          >Sign up</Link>
           : if you don't have account
         </p>
 
-        <i class="fa-solid fa-circle-xmark"></i>
+        <i onClick={showMessage} class="fa-solid fa-circle-xmark"></i>
       </div>}
       <div className='videoAn'>
         <motion.video
