@@ -1,13 +1,35 @@
 
 import React from 'react';
 import '../style/header.css';
-import { Link } from 'react-router-dom';
+import { motion } from "framer-motion"
+import { Link } from "react-router-dom"
 
 const HeaderHome = () => {
+  const token = document.cookie.split('=')[1]
   return (
-    <>
+    <div className='header'>
+      {!token && <div className="sign-message">
+        <p>if you want to be able to buy and save your cart products, you need to sign in or sign up. </p>
+        <p>
+          <Link to='/signin'
+            className="sign-in-button"
+          >Sign in</Link>
+          :  if you have account
+        </p>
+        <p>
+          <Link to='/signup'
+            className="sign-in-button"
+          >Sign in</Link>
+          : if you don't have account
+        </p>
+
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>}
       <div className='videoAn'>
-        <video
+        <motion.video
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 2.5 }}
           aria-labelledby="transcript-5306451725778944"
           muted
           playsInline
@@ -16,14 +38,24 @@ const HeaderHome = () => {
           preload="true"
           autoPlay
         >
-        </video>
+        </motion.video>
       </div>
       <div className="headerGreeting">
-        <p className="welcomeP">Discover a world of technology at our online shop. </p>
-        <span><p className="parag">Find the latest phones, laptops, and electronic devices to elevate your digital experience. Shop now and unlock the future of innovation!</p></span>
+        <motion.p
+          className="welcomeP"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 2.5 }}
+        >Discover a world of technology at our online shop. </motion.p>
+        <span><motion.p
+          className="parag"
+          initial={{ x: 200, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 1.2, delay: 0.5 }}
+        >Find the latest phones, laptops, and electronic devices to elevate your digital experience. Shop now and unlock the future of innovation!</motion.p></span>
         <Link to='/products' className='headBtn' > Shop Now </Link>
       </div>
-    </>
+    </div>
   )
 }
 export default HeaderHome;

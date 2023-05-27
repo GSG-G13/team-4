@@ -10,12 +10,9 @@
   font-size: 24px;
   margin-bottom: 20px;
   letter-spacing: 2px;
+  color: #fff;
 }
 
-.Sign p {
-  color: red;
-  margin-bottom: 10px;
-}
 
 .Sign form {
   width: 30%;
@@ -24,10 +21,15 @@
   align-items: center;
   justify-content: center;
   gap: 30px;
-  border: 1px solid #ccc;
   padding: 20px;
   height: 90%;
   border-top-right-radius: 100px;
+  background: rgba(6, 97, 164, 0.11);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(3.4px);
+-webkit-backdrop-filter: blur(3.4px);
+border: 1px solid rgba(6, 97, 164, 0.3);
 }
 
 .Sign input {
@@ -73,4 +75,30 @@
 
 .Sign a:hover{
   color: #007bff;
+}
+
+.error span{
+  color: #fff;
+  margin-right: 10px;
+  background-color: red;
+  padding: 5px 10px;
+  border-radius: 50%;
+}
+
+.error{
+  padding: 0px 10px;
+  width: fit-content;
+  height: 100px;
+  background: rgba(6, 97, 164, 0.11);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(3.4px);
+-webkit-backdrop-filter: blur(3.4px);
+border: 1px solid rgba(6, 97, 164, 0.3);
+display: flex;
+justify-content: center;
+align-items: center;
+position: absolute;
+left: 10px;
+color: #fff;
 }

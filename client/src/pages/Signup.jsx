@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import '../style/signup.css'
-
+import {motion} from 'framer-motion'
 const SignUp = () => {
   const navigate = useNavigate();
 
@@ -37,8 +37,13 @@ const SignUp = () => {
   
 
   return (
-    <div className='Sign'>
-      {error && <p className="error">{error}</p>}
+    <motion.div
+      initial={{x:'100vw'}}
+     animate={{x:0}}
+     transition={{duration:0.5}}
+     className='Sign'
+     >
+      {error && <p className='error'><span>!</span>{error}</p>}
       <form onSubmit={handleSignUp}>
         <h1>SignUp</h1>
   
@@ -64,7 +69,7 @@ const SignUp = () => {
         <button type="submit">SignUp</button>
         <h3>I have an account <Link to="/signin">Sign-in</Link></h3>
       </form>
-    </div>
+    </motion.div>
   );
   
 };
