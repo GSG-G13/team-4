@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from "react";
 import "../style/Sidebar.css";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import { motion } from "framer-motion"
 
 function Sidebar({ setPrice, price, setTitle, title }) {
   const categories = ["phone", "laptop", "accessories"];
 
   return (
-    <div className="sidebar">
+    <motion.div
+     initial={{ x: -300 }}
+     animate={{ x: 0 }}
+     transition={{ duration: 0.5,delay:0.5 }}
+     className="sidebar"
+     >
       <div className="searchTitle">
         <input
           type="text"
@@ -38,7 +43,7 @@ function Sidebar({ setPrice, price, setTitle, title }) {
       <div className="categories">
         <h2>Categories</h2>
         <ul>
-          <Link to="/products">All</Link>
+          <Link className="categoryLink" to="/products">All</Link>
           <br />
           <br />
           {categories.map((category) => (
@@ -50,7 +55,7 @@ function Sidebar({ setPrice, price, setTitle, title }) {
           ))}
         </ul>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

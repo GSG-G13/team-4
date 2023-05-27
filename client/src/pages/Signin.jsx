@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios'
+import { motion } from 'framer-motion'
 
 const SignIn = () => {
 
@@ -24,17 +25,26 @@ const SignIn = () => {
       }
     } catch (error) {
       if (error.response.data?.message?.details?.[0].message) {
+
         setError(error.response.data.message.details[0].message);
+
       } else {
+
         setError(error.response.data.message);
+
       }
 
     }
   };
 
   return (
-    <div className='Sign'>
-      {error && <p>{error}</p>}
+    <motion.div
+      initial={{ x: '-100vw' }}
+      animate={{ x: 0 }}
+      transition={{ duration: 0.5 }}
+      className='Sign'
+    >
+      {error && <p className='error'><span>!</span>{error}</p>}
       <form onSubmit={handleSignIn}>
         <h1>SignIn</h1>
 
@@ -56,7 +66,7 @@ const SignIn = () => {
 
       </form>
 
-    </div>
+    </motion.div>
   );
 };
 

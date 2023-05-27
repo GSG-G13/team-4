@@ -7,57 +7,73 @@
   gap: 20px;
 }
 
+.cart-table{
+  width: 80%;
+  margin: auto;
+}
+
 .cart-container h2{
   text-align: center;
+  color: #fff;
+  font-size: 30px;
 }
-
-.cart-item-image{
-  width: 200px;
-
-}
-
-.cart-item-remove{
-  width: 100px;
-  text-align: center;
-
-} */
-
 
 
 td img{
   height: 100%;
 } 
 
-.cart-item{
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+.cart-header{
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
 }
 
-th{
-  padding: 20px 10px;
-}
+.cart-item{
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  margin-top: 20px;
+  background: transparent;
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3.4px);
+  -webkit-backdrop-filter: blur(3.4px);
+  border: 1px solid rgba(16, 147, 244, 0.3);}
+
+  th{
+    padding: 20px 10px;
+    color: #fff;
+
+  }
 
 td{
-  width: 100px;
-  text-align: center;
-  padding: 10px 0px;
-  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 200px;
   font-size: 20px;
+  color: #fff;
+  justify-self: center;
 }
 
 td > button{
-  padding: 15px 30px;
+  padding: 10px 20px;
   border: none;
   cursor: pointer;
-  
+  font-size: 14px;
+  background: transparent;
+  color: #fff;
+
 }
 
 td > input{
-  padding: 10px;
   border: none;
-  border-bottom: 1px solid #ccc;
   border-radius: 4px;
   outline-width: 0;
   font-size: 20px;
+  background: transparent;
+  color: #fff;
+  width: 100%;
 }
 
 .cart-total-price{
