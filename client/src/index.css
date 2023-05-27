@@ -3,3 +3,13 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+::-webkit-scrollbar{
+  background: rgb(4, 4, 68);
+  width: 10px;
+}
+::-webkit-scrollbar-thumb{
+  background: blue;
+
+  border-radius: 20px;
+}

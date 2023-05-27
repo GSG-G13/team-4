@@ -10,7 +10,7 @@ import ProductDetails from './pages/ProductDetails';
 import Layout from './components/Layout';
 import ShopLayout from './components/ShopLayout';
 import Category from './pages/Category';
-
+import './app.css'
 
 
 function App() {

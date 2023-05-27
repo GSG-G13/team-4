@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../style/details.css';
 import '../style/seller.css';
+import { motion } from "framer-motion"
 
 function Details({ product }) {
   const [cartItems, setCartItems] = useState([]);
@@ -38,7 +39,15 @@ function Details({ product }) {
   };
 
   return (
-    <div className="details">
+    <motion.div
+      className="details"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ scale: 0 }}
+      transition={{ duration: 1 }}
+    >
+      <div className="circle"></div>
+      <div className="circle2"></div>
       <div className="card_image">
         <img src={product.image} alt="product" />
       </div>
@@ -54,14 +63,24 @@ function Details({ product }) {
           <p>{product.description}</p>
         </div>
         <div className="card_btn">
-          <button onClick={token && addToCart }>Add to cart</button>
+          <motion.button
+            whileHover={{
+              scale: 1.1,
+              backgroundColor: 'rgba(16, 147, 244, 0.3)',
+              color: "#fff",
+              borderRadius: "10px",
+            }}
+
+            transition={{ duration: 0.5 }}
+            onClick={token && addToCart}
+          >Add to cart</motion.button>
         </div>
 
         {showMessage && (
           <p style={{ color: 'red' }}>This product is already in your cart. Quantity cannot be edited.</p>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 }
 

@@ -1,18 +1,87 @@
 .details{
-  border-right: 1px solid #ccc;
   width: 80%;
-  margin: 50px auto;
+  margin: 20px auto;
   display: flex;
   gap: 10px;
-  height: 70vh;
-  box-shadow: 20px 15px 4px 0px rgba(0, 0, 0, 0.2);
+  height: 80vh;
   transition: 0.3s ease-in-out;
+  background: transparent;
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(16, 147, 244, 0.3);
 }
 
-.details:hover{
-  box-shadow: 30px 25px 4px 0px rgba(127, 121, 58, 0.2);
-  transform: scale(1.01) translateX(-20px);
+.circle{
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: #0090B0FF;
+  background: rgba(16, 147, 244, 0.16);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(3.4px);
+-webkit-backdrop-filter: blur(3.4px);
+  right: 105px;
+  top: 50px;
+  border-radius: 50%;
+  animation: circle1 5s linear infinite  ;
+
 }
+
+.circle2{
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: rgba(16, 147, 244, 0.16);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(3.4px);
+-webkit-backdrop-filter: blur(3.4px);
+  right: 100px;
+  bottom: 10px;
+  border-radius: 50%;
+  animation: circle2 5s linear infinite  ;
+}
+
+@keyframes circle1 {
+  0%{
+    transform: translateY(0px);
+    background: rgba(16, 147, 244, 0.16);
+
+  }
+  50%{
+    transform: translateY(500px);
+    background: rgba(14, 2, 244, 0.608);
+
+
+  }
+  100%{
+    transform: translateY(0px);
+    background: rgba(16, 147, 244, 0.16);
+
+  }
+}
+@keyframes circle2 {
+  0%{
+    transform: translateX(0px);
+    background: rgba(16, 147, 244, 0.16);
+
+  }
+  50%{
+    transform: translateX(-600px);
+    background: rgba(14, 2, 244, 0.608);
+
+
+  }
+  100%{
+    transform: translateX(0px);
+    background: rgba(16, 147, 244, 0.16);
+
+  }
+}
+
+
+
 
 .card_content{
   padding: 10px;
@@ -26,11 +95,12 @@
 
 .card_title h1 span, .card_title h2 span {
   font-size: 17px;
-  color: #666;
+  color: #ccc;
 }
 
 .card_title h1, .card_title h2{
   font-size: 25px;
+  color: #fff;
 } 
 
 .card_image{
@@ -62,10 +132,17 @@
   width: fit-content;
   font-size: 25px;
   border-bottom: 2px dotted ;
+  color: #ccc;
+
+}
+
+.card_description p{
+  color: #fff;
 }
 
 .card_btn button{
   padding: 15px 30px;
   border: none;
   cursor: pointer;
+
 }

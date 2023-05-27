@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../style/cart.css';
+
+import {motion} from 'framer-motion';
+
+
 const CartPage = () => {
   const [cartItems, setCartItems] = useState([]);
 
@@ -54,7 +58,12 @@ const CartPage = () => {
   };
 
   return (
-    <div className='cart-container'>
+    <motion.div
+     className='cart-container'
+     initial={{ x: '-100vw' }}
+     animate={{ x: 0 }}
+     transition={{duration: 1}}
+     >
       <h2>Cart</h2>
       {cartItems.length === 0 ? (
         <p>Your cart is empty.</p>
@@ -62,7 +71,7 @@ const CartPage = () => {
         <table className='cart-table' >
           <thead>
             <tr className='cart-header' >
-              <th className='cart-header-item'>Product</th>
+              <th className='cart-header-item'>Product-image</th>
               <th className='cart-header-item'>Product-title</th>
               <th className='cart-header-item'>Price</th>
               <th className='cart-header-item'>Quantity</th>
@@ -70,7 +79,13 @@ const CartPage = () => {
             </tr>
 
             {cartItems.map((item) => (
-              <tr className='cart-item' key={item.product_id}>
+              <motion.tr
+               initial={{ opacity: 0 }}
+               animate={{ opacity: 1 }}
+               transition={{duration: 0.8,delay:1}}
+               className='cart-item'
+                key={item.product_id}
+                >
                 <td  className='cart-item-image'><img src={item.image} alt={item.title} /></td>
                 <td className='cart-item-name'>{item.title}</td>
                 <td className='cart-item-price'> ${item.price}</td>
@@ -84,16 +99,21 @@ const CartPage = () => {
                   />
                   </td>
 
-                  <td className='cart-item-remove'><button onClick={() => handleRemoveFromCart(item.product_id)} className='remove-button'>remove</button></td>
+                  <td className='cart-item-remove'>
+                    <button
+                     onClick={() => handleRemoveFromCart(item.product_id)}
+                      className='remove-button'
+                      >remove</button>
+                      </td>
 
-                  </tr> 
+                  </motion.tr> 
             ))}
           </thead>
 
           <h2 className='cart-total-price'>Total Price : $ {getTotalPrice()}</h2>
         </table>
       )}
-    </div>
+    </motion.div>
   );
 };
 
