@@ -21,17 +21,17 @@
   padding: 10px;
   margin-right: 8px;
   border-radius: 5px;
-  border: 1px solid #2b2eff;
-  color: #2b2eff;
+  border: 1px solid #ebd334;
+  color: #ebd334;
   cursor: pointer;
 }
 
 .paginationBttns a:hover{
   color: #fff;
-  background-color: #2b2eff;
+  background-color: #ebd334;
 }
 
 .paginationActive a{
   color: #fff;
-  background-color: #2b2eff;
+  background-color: #ebd334;
 }
