@@ -13,25 +13,87 @@
 
 .header{
   margin-top: 50px;
+  display: flex;
+  height: 100vh;
 }
 
-.video-hero-animation__video {
-  width: 35%;
+.headerImage2{
+  position: absolute;
+  left: -10px;
+  width: 170px;
+  animation: image 2s ease-in-out infinite;
+  animation-delay: 1.6s;
 }
+.headerImage3{
+  position: absolute;
+  left: -70px;
+  top: 300px;
+  width: 170px;
+  animation: image 2s ease-in-out infinite;
+  animation-delay: 1.8s;
+}
+.headerImage4{
+  position: absolute;
+  left: 250px;
+  bottom: 50px;
+  width: 170px;
+  animation: image 2s ease-in-out infinite;
+  animation-delay: 2s;
+}
+.headerImage5{
+  position: absolute;
+  right: 150px;
+  top: 0px;
+  width: 170px;
+  animation: image 2s ease-in-out infinite;
+  animation-delay: 2.2s;
+}
+.headerImage6{
+  position: absolute;
+  bottom: 180px;
+  right: 90px;
+  width: 170px;
+  animation: image 2s ease-in-out infinite;
+  animation-delay: 2.4s;
+}
+
+@keyframes image {
+  0%{
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(1.2);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+
+/* .video-hero-animation__video {
+  width: 35%;
+} */
 
 .videoAn {
-  position: absolute;
+  width: 60%;
+  position: relative;
+  height: 90%;
 }
 
-video {
+.videoAn .headerImage{
+  width: 80%;
+  margin: auto;
+}
+
+/* video {
   position: relative;
   top: 10%;
   left: 60%;
   object-fit: contain;
   overflow: clip;
-}
+} */
 .headerGreeting{
-  position: absolute;
+  /* position: absolute; */
+  width: 60%;
 }
 .welcomeP{
   position: relative;

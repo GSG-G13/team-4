@@ -5,7 +5,11 @@ import Select from '../components/Select'
 import TestArea from '../components/TestArea'
 import '../style/seller.css'
 import {useState } from 'react'
+import {motion} from 'framer-motion'
+import { useNavigate } from 'react-router-dom';
+
 function Seller() {
+  const navigate = useNavigate();
 
   const options = ['phone','laptop','accessories']
 
@@ -27,11 +31,20 @@ function Seller() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const response = await axios.post('/api/product', product)
+    if(response.status === 201){
+      navigate('/products')
+    }
   }
+  
 
 
   return (
-    <div className='seller'>
+    <motion.div
+    initial={{y:'100vh'}}
+    animate={{y:0}}
+    transition={{duration:1}}
+     className='seller'
+     >
       <form className='seller-form' onSubmit={handleSubmit}>
         <Input
           name='title'
@@ -56,7 +69,8 @@ function Seller() {
           setFunction={handleFormChange} />
         <Button name='Add Product' />
       </form>
-    </div>
+      
+    </motion.div>
   )
 }
 

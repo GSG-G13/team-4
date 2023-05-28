@@ -9,6 +9,7 @@ import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons
 import HeaderHome from "../components/header";
 import { motion } from "framer-motion"
 
+
 const Home = () => {
   const [data, setData] = useState([]);
 
@@ -29,7 +30,7 @@ const Home = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
     centerMode: true,
     centerPadding: "60px",
@@ -77,13 +78,15 @@ const Home = () => {
         </motion.p>
         <Slider className="slider" {...sliderSettings}>
           {data.map((product) => (
-            <div className="card" key={product.id}>
+            <div style={{ marginRight: '50px' }} className="card" key={product.id}>
               <img src={product.image} alt="img" />
               <h4>{product.title}</h4>
             </div>
           ))}
         </Slider>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#5000ca" fill-opacity="1" d="M0,128L48,138.7C96,149,192,171,288,186.7C384,203,480,213,576,197.3C672,181,768,139,864,138.7C960,139,1056,181,1152,213.3C1248,245,1344,267,1392,277.3L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+        <svg
+
+          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#5000ca" fill-opacity="1" d="M0,128L48,138.7C96,149,192,171,288,186.7C384,203,480,213,576,197.3C672,181,768,139,864,138.7C960,139,1056,181,1152,213.3C1248,245,1344,267,1392,277.3L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
       </div>
 
     </>
